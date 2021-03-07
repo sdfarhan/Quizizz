@@ -1,0 +1,16 @@
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Services.Data.deps.json
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Services.Data.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Services.Data.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Data.Common.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Data.Models.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Services.Mapping.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Data.Common.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Data.Models.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\bin\Debug\netstandard2.1\Quizizz.Services.Mapping.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\obj\Debug\netstandard2.1\Quizizz.Services.Data.csprojAssemblyReference.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\obj\Debug\netstandard2.1\Quizizz.Services.Data.AssemblyInfoInputs.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\obj\Debug\netstandard2.1\Quizizz.Services.Data.AssemblyInfo.cs
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\obj\Debug\netstandard2.1\Quizizz.Services.Data.csproj.CoreCompileInputs.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\obj\Debug\netstandard2.1\Quizizz.Services.Data.csproj.CopyComplete
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\obj\Debug\netstandard2.1\Quizizz.Services.Data.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Data\obj\Debug\netstandard2.1\Quizizz.Services.Data.pdb
