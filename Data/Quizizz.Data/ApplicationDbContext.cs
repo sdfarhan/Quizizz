@@ -6,11 +6,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    using Quizizz.Data.Common.Models;
-    using Quizizz.Data.Models;
-
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using Quizizz.Data.Common.Models;
+    using Quizizz.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -24,7 +23,29 @@
         {
         }
 
+        public DbSet<Answer> Answers { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Event> Events { get; set; }
+
+        public DbSet<EventGroup> EventGroups { get; set; }
+
+        public DbSet<Group> Groups { get; set; }
+
+        public DbSet<Password> Passwords { get; set; }
+
+        public DbSet<Question> Questions { get; set; }
+
+        public DbSet<Quiz> Quizzes { get; set; }
+
+        public DbSet<Result> Results { get; set; }
+
+        public DbSet<ScheduledJob> ScheduledJobs { get; set; }
+
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<StudentGroup> StudentGroups { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
