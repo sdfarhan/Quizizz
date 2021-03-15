@@ -18,4 +18,16 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="EventsGroups\" />
+    <Folder Include="Groups\" />
+    <Folder Include="Users\" />
+    <Folder Include="StudentsGroups\" />
+    <Folder Include="ScheduledJobsService\" />
+    <Folder Include="Results\" />
+    <Folder Include="Quizzes\" />
+    <Folder Include="Questions\" />
+  </ItemGroup>
+
 </Project>

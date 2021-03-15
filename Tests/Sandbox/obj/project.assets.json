@@ -1867,6 +1867,9 @@
       "Quizizz.Services/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Quizizz.Data.Common": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Quizizz.Services.dll": {}
         },
