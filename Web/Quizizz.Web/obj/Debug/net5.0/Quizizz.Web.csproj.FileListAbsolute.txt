@@ -465,3 +465,4 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Quizizz.Web.dll
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\ref\Quizizz.Web.dll
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Quizizz.Web.pdb
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Quizizz.Web.genruntimeconfig.cache
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_BubblesAndCirclesPartial.cshtml.g.cs
