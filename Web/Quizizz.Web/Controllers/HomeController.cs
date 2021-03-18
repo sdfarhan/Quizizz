@@ -2,9 +2,8 @@
 {
     using System.Diagnostics;
 
-    using Quizizz.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
+    using Quizizz.Web.ViewModels;
 
     public class HomeController : BaseController
     {
