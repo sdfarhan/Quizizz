@@ -21,7 +21,7 @@ namespace Quizizz.Web.Areas.Identity.Pages.Account
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-        private ILogger<LoginModel> logger;
+        private readonly ILogger<LoginModel> logger;
 
         public LoginModel(
             UserManager<ApplicationUser> userManager,
@@ -84,7 +84,7 @@ namespace Quizizz.Web.Areas.Identity.Pages.Account
                     this.logger.LogInformation($"{user.UserName} logged in.");
                     var option = new CookieOptions();
                     option.Expires = DateTime.Now.AddDays(30);
-                    Response.Cookies.Append(GlobalConstants.Coockies.TimeZoneIana, this.Input.TimeZone, option);
+                    this.Response.Cookies.Append(GlobalConstants.Coockies.TimeZoneIana, this.Input.TimeZone, option);
                     return this.LocalRedirect(returnUrl);
                 }
 

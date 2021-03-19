@@ -1909,6 +1909,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0",
           "Sendgrid": "9.22.0"
         },
         "compile": {
