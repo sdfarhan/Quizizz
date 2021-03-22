@@ -1,9 +1,8 @@
 ﻿namespace Quizizz.Web.Areas.Administration.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using Quizizz.Services.Data;
     using Quizizz.Web.ViewModels.Administration.Dashboard;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class DashboardController : AdministrationController
     {

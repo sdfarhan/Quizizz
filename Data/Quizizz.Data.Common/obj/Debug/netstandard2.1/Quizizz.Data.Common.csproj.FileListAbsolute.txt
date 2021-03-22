@@ -1,6 +1,7 @@
 F:\myrepos\Quizizz\Data\Quizizz.Data.Common\bin\Debug\netstandard2.1\Quizizz.Data.Common.deps.json
 F:\myrepos\Quizizz\Data\Quizizz.Data.Common\bin\Debug\netstandard2.1\Quizizz.Data.Common.dll
 F:\myrepos\Quizizz\Data\Quizizz.Data.Common\bin\Debug\netstandard2.1\Quizizz.Data.Common.pdb
+F:\myrepos\Quizizz\Data\Quizizz.Data.Common\obj\Debug\netstandard2.1\Quizizz.Data.Common.csprojAssemblyReference.cache
 F:\myrepos\Quizizz\Data\Quizizz.Data.Common\obj\Debug\netstandard2.1\Quizizz.Data.Common.AssemblyInfoInputs.cache
 F:\myrepos\Quizizz\Data\Quizizz.Data.Common\obj\Debug\netstandard2.1\Quizizz.Data.Common.AssemblyInfo.cs
 F:\myrepos\Quizizz\Data\Quizizz.Data.Common\obj\Debug\netstandard2.1\Quizizz.Data.Common.csproj.CoreCompileInputs.cache

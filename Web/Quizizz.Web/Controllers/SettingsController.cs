@@ -3,12 +3,11 @@
     using System;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Mvc;
     using Quizizz.Data.Common.Repositories;
     using Quizizz.Data.Models;
     using Quizizz.Services.Data;
     using Quizizz.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
     {

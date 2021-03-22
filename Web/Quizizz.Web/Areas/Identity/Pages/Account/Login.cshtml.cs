@@ -1,4 +1,4 @@
-namespace Quizizz.Web.Areas.Identity.Pages.Account
+﻿namespace Quizizz.Web.Areas.Identity.Pages.Account
 {
     using System;
     using System.Collections.Generic;
@@ -84,7 +84,7 @@ namespace Quizizz.Web.Areas.Identity.Pages.Account
                     this.logger.LogInformation($"{user.UserName} logged in.");
                     var option = new CookieOptions();
                     option.Expires = DateTime.Now.AddDays(30);
-                    this.Response.Cookies.Append(GlobalConstants.Coockies.TimeZoneIana, this.Input.TimeZone, option);
+                    this.Response.Cookies.Append(GlobalConstants.Coockies.TimeZoneIana, this.Input.TimeZoneIana, option);
                     return this.LocalRedirect(returnUrl);
                 }
 
@@ -116,8 +116,7 @@ namespace Quizizz.Web.Areas.Identity.Pages.Account
             [Display(Name = "Remeber me?")]
             public bool RememberMe { get; set; }
 
-            public string TimeZone { get; set; }
+            public string TimeZoneIana { get; set; }
         }
-
     }
 }

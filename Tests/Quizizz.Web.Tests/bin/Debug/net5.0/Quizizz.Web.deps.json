@@ -2500,6 +2500,7 @@
       },
       "Quizizz.Services.Messaging/1.0.0": {
         "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0",
           "SendGrid": "9.22.0"
         },
         "runtime": {
