@@ -36,8 +36,4 @@
     <ProjectReference Include="..\Quizizz.Web.Infrastructure\Quizizz.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\Quizizz.Web.ViewModels\Quizizz.Web.ViewModels.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Identity\Pages\Account\Manage\" />
-  </ItemGroup>
 </Project>

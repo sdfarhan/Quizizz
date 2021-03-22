@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quizizz.Services.Categories
+﻿namespace Quizizz.Services.Categories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class CategoriesService : ICategoriesService
     {
         public Task AssignQuizzesToCategoryAsync(string id, IEnumerable<string> quizzesIds)

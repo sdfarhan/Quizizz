@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Quizizz.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "F:\\myrepos\\Quizizz\\Data\\Quizizz.Data", "Quizizz.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Quizizz.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "F:\\myrepos\\Quizizz\\Web\\Quizizz.Web", "Quizizz.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Quizizz.Web", "F:\\myrepos\\Quizizz\\Web\\Quizizz.Web", "Quizizz.Web.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Quizizz.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

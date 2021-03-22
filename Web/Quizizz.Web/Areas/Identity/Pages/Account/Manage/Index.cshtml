@@ -1,0 +1,25 @@
+﻿@page
+@model Quizizz.Web.Areas.Identity.Pages.Account.Manage.IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+    if(this.User.IsInRole(GlobalConstants.AdministratorRoleName) || this.User.IsInRole(GlobalConstants.TeacherRoleName))
+    {
+        ViewData["Layout"] = GlobalConstants.AdminLayout;
+    }
+}
+
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" class="form-control" disabled/>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationSciptsPartial" />
+}

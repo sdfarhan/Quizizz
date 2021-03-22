@@ -3,9 +3,8 @@ namespace Quizizz.Data.Models
 {
     using System;
 
-    using Quizizz.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using Quizizz.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {
