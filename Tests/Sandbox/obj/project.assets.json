@@ -1868,7 +1868,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Quizizz.Data.Common": "1.0.0"
+          "Quizizz.Data.Common": "1.0.0",
+          "Quizizz.Data.Models": "1.0.0",
+          "Quizizz.Services.Mapping": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Quizizz.Services.dll": {}
@@ -6808,14 +6810,11 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,11 +4,17 @@
     {
         public const string SystemName = "Quizizz";
 
+        public const string Administration = "Administration";
+
         public const string AdministratorRoleName = "Administrator";
 
         public const string TeacherRoleName = "Teacher";
 
+        public const string AdministratorAndTeacherAuthorizationString = "Administrator, Teacher";
+
         public const string AdminLayout = "_LayoutAdmin";
+
+        public const string PageToReturnTo = "Page";
 
         public static class Coockies
         {

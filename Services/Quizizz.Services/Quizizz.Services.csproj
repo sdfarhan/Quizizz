@@ -30,6 +30,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Quizizz.Data.Common\Quizizz.Data.Common.csproj" />
+    <ProjectReference Include="..\..\Data\Quizizz.Data.Models\Quizizz.Data.Models.csproj" />
+    <ProjectReference Include="..\Quizizz.Services.Mapping\Quizizz.Services.Mapping.csproj" />
   </ItemGroup>
 
 </Project>

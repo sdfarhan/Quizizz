@@ -14,7 +14,7 @@ namespace Quizizz.Data.Models
 
         public string Text { get; set; }
 
-        public bool? IsCorrectAnswer { get; set; }
+        public bool? IsRightAnswer { get; set; }
 
         public string QuestionId { get; set; }
 

@@ -1,30 +1,58 @@
 ﻿namespace Quizizz.Services.Answers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using System.Linq;
     using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+    using Quizizz.Data.Common.Repositories;
+    using Quizizz.Data.Models;
+    using Quizizz.Services.Mapping;
 
     public class AnswersService : IAnswersService
     {
-        public Task CreateAnswerAsync(string answerText, bool isRightAnswer, string questionId)
+        private readonly IDeletableEntityRepository<Answer> repository;
+
+        public AnswersService(IDeletableEntityRepository<Answer> repository)
         {
-            throw new NotImplementedException();
+            this.repository = repository;
         }
 
-        public Task DeleteAsync(string id)
+        public async Task CreateAnswerAsync(string answerText, bool isRightAnswer, string questionId)
         {
-            throw new NotImplementedException();
+            var answer = new Answer
+            {
+                Text = answerText,
+                IsRightAnswer = isRightAnswer,
+                QuestionId = questionId,
+            };
+
+            await this.repository.AddAsync(answer);
+            await this.repository.SaveChangesAsync();
         }
 
-        public Task<T> GetByIdAsync<T>(string id)
+        public async Task<T> GetByIdAsync<T>(string id)
+        => await this.repository
+            .AllAsNoTracking()
+            .Where(x => x.Id == id)
+            .To<T>()
+            .FirstOrDefaultAsync();
+
+        public async Task UpdateAsync(string id, string text, bool isRightAnswer)
         {
-            throw new NotImplementedException();
+            var answer = await this.repository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            answer.Text = text;
+            answer.IsRightAnswer = isRightAnswer;
+
+            this.repository.Update(answer);
+            await this.repository.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(string id, string text, bool isRightAnswer)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            var answer = await this.repository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+
+            this.repository.Delete(answer);
+            await this.repository.SaveChangesAsync();
         }
     }
 }

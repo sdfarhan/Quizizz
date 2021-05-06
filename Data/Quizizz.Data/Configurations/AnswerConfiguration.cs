@@ -12,7 +12,7 @@
             answer.Property(a => a.Text)
                 .HasMaxLength(DataValidation.Answer.TextMaxLength)
                 .IsRequired();
-            answer.Property(a => a.IsCorrectAnswer)
+            answer.Property(a => a.IsRightAnswer)
                 .HasDefaultValue(false);
         }
     }
