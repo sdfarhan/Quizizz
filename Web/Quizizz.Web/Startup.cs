@@ -20,6 +20,7 @@
     using Quizizz.Services.Data;
     using Quizizz.Services.Mapping;
     using Quizizz.Services.Messaging;
+    using Quizizz.Services.Tools.Expressions;
     using Quizizz.Web.ViewModels;
 
     public class Startup
@@ -60,12 +61,13 @@
 
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
-            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Application services
             services.AddTransient<IEmailSender>(x => new SendGridEmailSender(new LoggerFactory(), this.configuration["SendGrid"]));
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<IExpressionBuilder, ExpressionBuilder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

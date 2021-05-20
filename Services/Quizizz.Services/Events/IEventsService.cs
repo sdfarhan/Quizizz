@@ -42,9 +42,7 @@
 
         Task AssignGroupsToEventAsync(string eventId, IList<string> groupIds);
 
-        Task<string> CreateEventAsync(string name, string activationData, string activeFrom, string activateTo, string creatorId);
-
-        Task<T> GetEventByIdAsync<T>(string id);
+        Task<string> CreateEventAsync(string name, string activationDate, string activeFrom, string activateTo, string creatorId);
 
         Task DeleteQuizFromEventAsync(string eventId, string quizId);
 

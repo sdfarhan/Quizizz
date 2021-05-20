@@ -3,7 +3,7 @@ namespace Quizizz.Data.Models
 {
     using System;
     using System.Collections.Generic;
-
+    using Quizizz.Data.Common.Enumerations;
     using Quizizz.Data.Common.Models;
 
     public class Event : BaseDeletableModel<string>
@@ -16,6 +16,8 @@ namespace Quizizz.Data.Models
         public string Name { get; set; }
 
         public string CreatorId { get; set; }
+
+        public Status Status { get; set; }
 
         public virtual ApplicationUser Creator { get; set; }
 

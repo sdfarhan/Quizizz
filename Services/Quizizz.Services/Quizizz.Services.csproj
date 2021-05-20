@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Users\" />
     <Folder Include="StudentsGroups\" />
     <Folder Include="ScheduledJobsService\" />
     <Folder Include="Results\" />

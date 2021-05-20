@@ -527,6 +527,63 @@
         }
       }
     },
+    "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj",
+        "projectName": "Quizizz.Services.Tools",
+        "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj",
+        "packagesPath": "C:\\Users\\sf185122\\.nuget\\packages\\",
+        "outputPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sf185122\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services\\Quizizz.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -562,6 +619,9 @@
               },
               "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Mapping\\Quizizz.Services.Mapping.csproj": {
                 "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Mapping\\Quizizz.Services.Mapping.csproj"
+              },
+              "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj": {
+                "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj"
               }
             }
           }
@@ -885,6 +945,9 @@
               },
               "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Messaging\\Quizizz.Services.Messaging.csproj": {
                 "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Messaging\\Quizizz.Services.Messaging.csproj"
+              },
+              "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj": {
+                "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj"
               },
               "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services\\Quizizz.Services.csproj": {
                 "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services\\Quizizz.Services.csproj"

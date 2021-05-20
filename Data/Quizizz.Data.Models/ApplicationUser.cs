@@ -15,7 +15,7 @@ namespace Quizizz.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
-            this.StudentIngroups = new HashSet<StudentGroup>();
+            this.StudentsInGroups = new HashSet<StudentGroup>();
             this.Students = new HashSet<ApplicationUser>();
             this.CreatedQuizzes = new HashSet<Quiz>();
             this.Results = new HashSet<Result>();
@@ -47,7 +47,7 @@ namespace Quizizz.Data.Models
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
-        public virtual ICollection<StudentGroup> StudentIngroups { get; set; }
+        public virtual ICollection<StudentGroup> StudentsInGroups { get; set; }
 
         public virtual ICollection<ApplicationUser> Students { get; set; }
 

@@ -3638,7 +3638,8 @@
         "dependencies": {
           "Quizizz.Data.Common": "1.0.0",
           "Quizizz.Data.Models": "1.0.0",
-          "Quizizz.Services.Mapping": "1.0.0"
+          "Quizizz.Services.Mapping": "1.0.0",
+          "Quizizz.Services.Tools": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Quizizz.Services.dll": {}
@@ -3689,6 +3690,16 @@
           "bin/placeholder/Quizizz.Services.Messaging.dll": {}
         }
       },
+      "Quizizz.Services.Tools/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Quizizz.Services.Tools.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Quizizz.Services.Tools.dll": {}
+        }
+      },
       "Quizizz.Web/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -3706,6 +3717,7 @@
           "Quizizz.Services.Data": "1.0.0",
           "Quizizz.Services.Mapping": "1.0.0",
           "Quizizz.Services.Messaging": "1.0.0",
+          "Quizizz.Services.Tools": "1.0.0",
           "Quizizz.Web.Infrastructure": "1.0.0",
           "Quizizz.Web.ViewModels": "1.0.0"
         },
@@ -11240,6 +11252,11 @@
       "type": "project",
       "path": "../../Services/Quizizz.Services.Messaging/Quizizz.Services.Messaging.csproj",
       "msbuildProject": "../../Services/Quizizz.Services.Messaging/Quizizz.Services.Messaging.csproj"
+    },
+    "Quizizz.Services.Tools/1.0.0": {
+      "type": "project",
+      "path": "../../Services/Quizizz.Services.Tools/Quizizz.Services.Tools.csproj",
+      "msbuildProject": "../../Services/Quizizz.Services.Tools/Quizizz.Services.Tools.csproj"
     },
     "Quizizz.Web/1.0.0": {
       "type": "project",
