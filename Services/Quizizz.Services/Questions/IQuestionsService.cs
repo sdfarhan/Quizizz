@@ -9,6 +9,7 @@ namespace Quizizz.Services.Questions
         Task DeleteQuestionByIdAsync(string id);
         Task<IList<T>> GetAllByQuizIdAsync<T>(string id);
         Task<int> GetAllByQuizIdCountAsync(string id);
+        Task<T> GetByIdAsync<T>(string id);
         Task<T> GetQuestionByQuizIdAndNumberAsync<T>(string quizId, int number);
         Task Update(string id, string text);
         Task UpdateAllQuestionsInQuizNumeration(string quizId);

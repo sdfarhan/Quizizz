@@ -32,6 +32,7 @@
     <ProjectReference Include="..\..\Services\Quizizz.Services.Data\Quizizz.Services.Data.csproj" />
     <ProjectReference Include="..\..\Services\Quizizz.Services.Mapping\Quizizz.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\Quizizz.Services.Messaging\Quizizz.Services.Messaging.csproj" />
+    <ProjectReference Include="..\..\Services\Quizizz.Services.Tools\Quizizz.Services.Tools.csproj" />
     <ProjectReference Include="..\..\Services\Quizizz.Services\Quizizz.Services.csproj" />
     <ProjectReference Include="..\Quizizz.Web.Infrastructure\Quizizz.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\Quizizz.Web.ViewModels\Quizizz.Web.ViewModels.csproj" />

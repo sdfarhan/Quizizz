@@ -1,15 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Quizizz.Data.Common.Repositories;
-using Quizizz.Data.Models;
-using Quizizz.Services.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quizizz.Services.Questions
+﻿namespace Quizizz.Services.Questions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+    using Quizizz.Data.Common.Repositories;
+    using Quizizz.Data.Models;
+    using Quizizz.Services.Mapping;
+
     public class QuestionsService : IQuestionsService
     {
         private readonly IDeletableEntityRepository<Question> questionRepository;
@@ -25,12 +26,19 @@ namespace Quizizz.Services.Questions
 
         public async Task<string> CreateQuestionAsync(string quizId, string questionText)
         {
+            var quiz = await this.quizRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == quizId);
 
             var newQuestion = new Question
             {
+                Number = quiz.Questions.Count + 1,
                 QuizId = quizId,
                 Text = questionText,
             };
+
+            await this.questionRepository.AddAsync(newQuestion);
+            await this.questionRepository.SaveChangesAsync();
+
+            return newQuestion.Id;
         }
 
         public async Task DeleteQuestionByIdAsync(string id)
@@ -41,9 +49,22 @@ namespace Quizizz.Services.Questions
             await this.UpdateAllQuestionsInQuizNumeration(question.QuizId);
         }
 
-        public Task UpdateAllQuestionsInQuizNumeration(string quizId)
+        public async Task UpdateAllQuestionsInQuizNumeration(string quizId)
         {
-            throw new NotImplementedException();
+            var count = 0;
+
+            var questions = this.questionRepository
+              .AllAsNoTracking()
+              .Where(x => x.QuizId == quizId)
+              .OrderBy(x => x.Number);
+
+            foreach (var question in questions)
+            {
+                question.Number = ++count;
+                this.questionRepository.Update(question);
+            }
+
+            await this.questionRepository.SaveChangesAsync();
         }
 
         public async Task Update(string id, string text)
@@ -53,6 +74,12 @@ namespace Quizizz.Services.Questions
             this.questionRepository.Update(questionToBeUpdated);
             await this.questionRepository.SaveChangesAsync();
         }
+
+        public async Task<T> GetByIdAsync<T>(string id)
+        => await this.questionRepository.AllAsNoTracking()
+            .Where(x => x.Id == id)
+            .To<T>()
+            .FirstOrDefaultAsync();
 
         public async Task<IList<T>> GetAllByQuizIdAsync<T>(string id)
         => await this.questionRepository.AllAsNoTracking()

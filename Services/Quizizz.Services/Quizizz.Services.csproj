@@ -19,18 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="StudentsGroups\" />
-    <Folder Include="ScheduledJobsService\" />
-    <Folder Include="Results\" />
-    <Folder Include="Quizzes\" />
-    <Folder Include="Questions\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Data\Quizizz.Data.Common\Quizizz.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\Quizizz.Data.Models\Quizizz.Data.Models.csproj" />
     <ProjectReference Include="..\Quizizz.Services.Mapping\Quizizz.Services.Mapping.csproj" />
+    <ProjectReference Include="..\Quizizz.Services.Tools\Quizizz.Services.Tools.csproj" />
   </ItemGroup>
 
 </Project>
