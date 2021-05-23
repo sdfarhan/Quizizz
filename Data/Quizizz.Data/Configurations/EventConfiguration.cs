@@ -13,7 +13,7 @@
                 .WithOne(q => q.Event)
                 .HasForeignKey<Event>(e => e.QuizId);
 
-            eventEntity.HasMany(e => e.EventGroups)
+            eventEntity.HasMany(e => e.EventsGroups)
                 .WithOne(eg => eg.Event)
                 .HasForeignKey(eg => eg.EventId);
 

@@ -13,13 +13,13 @@
 
         Task<IList<T>> GetAllPerPage<T>(int page, int countPerPage, string creatorId = null, string searchCriteria = null, string searchText = null);
 
-        Task<IList<T>> GetAllPerPageByCreatorIdAndStatus<T>(int page, int countPerPage, string creatorId, Status status, string searchCriteria = null, string searchtext = null);
+        Task<IList<T>> GetAllPerPageByCreatorIdAndStatus<T>(int page, int countPerPage, Status status, string creatorId, string searchCriteria = null, string searchText = null);
 
-        Task<int> GetAllEventsCountAsync(string creatorId = null, string searchCriteria = null, string searchtext = null);
+        Task<int> GetAllEventsCountAsync(string creatorId = null, string searchCriteria = null, string searchText = null);
 
-        Task<int> GetEventsCountBycreatorIdAndStatusAsync(string creatorId, Status status, string searchCriteria = null, string searchtext = null);
+        Task<int> GetEventsCountByCreatorIdAndStatusAsync(Status status, string creatorId, string searchCriteria = null, string searchText = null);
 
-        Task<IList<T>> GetAllFilteredByStatusAndGroup<T>(Status status, string groupId, string searchCriteria = null, string searchtext = null);
+        Task<IList<T>> GetAllFiteredByStatusAndGroupAsync<T>(Status status, string groupId, string creatorId = null);
 
         Task<IList<T>> GetPerPageByStudentIdFilteredByStatusAsync<T>(
             Status status,
@@ -28,26 +28,28 @@
             int countPerPage,
             bool withDeleted,
             string searchCriteria = null,
-            string searchtext = null);
+            string searchText = null);
 
-        Task<int> GetEventsCountByStudentIdAndStatusAsync(string id, Status status, string searchCriteria = null, string searchtext = null);
+        Task<int> GetEventsCountByStudentIdAndStatusAsync(string id, Status status, string searchCriteria = null, string searchText = null);
 
         Task<IList<T>> GetAllByGroupIdAsync<T>(string groupId);
 
-        Task DeleteAsync(string id);
+        Task DeleteAsync(string eventId);
 
-        Task UpdateAsync(string id, string name, string activationDate, string activeFrom, string activeTo, string timeZone);
+        Task UpdateAsync(string id, string name, string activationDate, string activeFrom, string ativeTo, string timeZone);
 
-        Task AssignQuizToEventAsync(string eventId, string quizId, string timeZone);
+        Task AssigQuizToEventAsync(string eventId, string quizId, string timeZone);
 
-        Task AssignGroupsToEventAsync(string eventId, IList<string> groupIds);
+        Task AssignGroupsToEventAsync(IList<string> groupIds, string eventId);
 
-        Task<string> CreateEventAsync(string name, string activationDate, string activeFrom, string activateTo, string creatorId);
+        Task<string> CreateEventAsync(string name, string activationDate, string activeFrom, string activeTo, string creatorId);
+
+        Task<T> GetEventModelByIdAsync<T>(string eventId);
 
         Task DeleteQuizFromEventAsync(string eventId, string quizId);
 
         string GetTimeErrorMessage(string activeFrom, string activeTo, string activationDate, string timeZone);
 
-        Task SendEmailToEventGroups(string eventId, string emailHtmlContent);
+        Task SendEmailsToEventGroups(string eventId, string emailHtmlContent);
     }
 }

@@ -1,9 +1,0 @@
-F:\myrepos\Quizizz\Quizizz.Common\bin\Debug\netstandard2.1\Quizizz.Common.deps.json
-F:\myrepos\Quizizz\Quizizz.Common\bin\Debug\netstandard2.1\Quizizz.Common.dll
-F:\myrepos\Quizizz\Quizizz.Common\bin\Debug\netstandard2.1\Quizizz.Common.pdb
-F:\myrepos\Quizizz\Quizizz.Common\obj\Debug\netstandard2.1\Quizizz.Common.csprojAssemblyReference.cache
-F:\myrepos\Quizizz\Quizizz.Common\obj\Debug\netstandard2.1\Quizizz.Common.AssemblyInfoInputs.cache
-F:\myrepos\Quizizz\Quizizz.Common\obj\Debug\netstandard2.1\Quizizz.Common.AssemblyInfo.cs
-F:\myrepos\Quizizz\Quizizz.Common\obj\Debug\netstandard2.1\Quizizz.Common.csproj.CoreCompileInputs.cache
-F:\myrepos\Quizizz\Quizizz.Common\obj\Debug\netstandard2.1\Quizizz.Common.dll
-F:\myrepos\Quizizz\Quizizz.Common\obj\Debug\netstandard2.1\Quizizz.Common.pdb

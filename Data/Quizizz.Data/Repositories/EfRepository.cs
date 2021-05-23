@@ -7,7 +7,7 @@
     using Microsoft.EntityFrameworkCore;
     using Quizizz.Data.Common.Repositories;
 
-    public class EfRepository<TEntity> : IDeletableEntityRepository<TEntity>
+    public class EfRepository<TEntity> : IRepository<TEntity>
         where TEntity : class
     {
         public EfRepository(ApplicationDbContext context)

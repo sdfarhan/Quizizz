@@ -12,9 +12,9 @@
 
     public class StudentsGroupsService : IStudentsGroupsService
     {
-        private readonly IDeletableEntityRepository<StudentGroup> repository;
+        private readonly IRepository<StudentGroup> repository;
 
-        public StudentsGroupsService(IDeletableEntityRepository<StudentGroup> repository)
+        public StudentsGroupsService(IRepository<StudentGroup> repository)
         {
             this.repository = repository;
         }

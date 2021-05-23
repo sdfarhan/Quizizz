@@ -67,7 +67,7 @@
 
             if (eventId != null)
             {
-                query = query.Where(x => x.EventGroups.Any(x => x.EventId == eventId));
+                query = query.Where(x => x.EventsGroups.Any(x => x.EventId == eventId));
             }
 
             return await query.OrderByDescending(x => x.CreatedOn).To<T>().ToListAsync();
@@ -125,7 +125,7 @@
         public async Task<IEnumerable<T>> GetAllByEventIdAsync<T>(string eventId)
         => await this.groupRepository
                 .AllAsNoTracking()
-                .Where(x => x.EventGroups.Any(ev => ev.EventId == eventId))
+                .Where(x => x.EventsGroups.Any(ev => ev.EventId == eventId))
                 .To<T>()
                 .ToListAsync();
 
@@ -183,7 +183,7 @@
         public async Task<T> GetEventsFirstGroupAsync<T>(string eventId)
         => await this.groupRepository
                 .AllAsNoTracking()
-                .Where(x => x.EventGroups.Any(ev => ev.EventId == eventId))
+                .Where(x => x.EventsGroups.Any(ev => ev.EventId == eventId))
                 .To<T>()
                 .FirstOrDefaultAsync();
     }

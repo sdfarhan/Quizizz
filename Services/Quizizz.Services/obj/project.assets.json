@@ -15,6 +15,32 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authorization/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Options": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.IO.Pipelines": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.1": {
         "type": "package",
         "compile": {
@@ -36,6 +62,18 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.1": {
         "type": "package",
         "dependencies": {
@@ -47,6 +85,52 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Common/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Options": "2.2.0",
+          "Newtonsoft.Json": "11.0.2",
+          "System.Buffers": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Core/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "2.2.0",
+          "Microsoft.AspNetCore.SignalR.Common": "1.1.0",
+          "Microsoft.AspNetCore.SignalR.Protocols.Json": "1.1.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Threading.Channels": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Core.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Protocols.Json/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "1.1.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {}
         }
       },
       "Microsoft.CSharp/4.7.0": {
@@ -250,6 +334,37 @@
           "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "SendGrid/9.22.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "starkbank-ecdsa": "[1.2.0, 2.0.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/SendGrid.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SendGrid.dll": {}
+        }
+      },
+      "starkbank-ecdsa/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/StarkbankEcdsa.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/StarkbankEcdsa.dll": {}
+        }
+      },
       "StyleCop.Analyzers/1.2.0-beta.312": {
         "type": "package",
         "dependencies": {
@@ -302,6 +417,20 @@
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
         }
       },
+      "System.IO.Pipelines/4.5.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Memory": "4.5.1",
+          "System.Threading.Tasks.Extensions": "4.5.1"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.IO.Pipelines.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.IO.Pipelines.dll": {}
+        }
+      },
       "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
@@ -341,6 +470,52 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.Threading.Channels/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Threading.Channels.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Threading.Channels.dll": {}
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
+        }
+      },
+      "TimeZoneConverter/3.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/TimeZoneConverter.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/TimeZoneConverter.dll": {}
+        }
+      },
+      "Quizizz.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
+        },
+        "compile": {
+          "bin/placeholder/Quizizz.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Quizizz.Common.dll": {}
         }
       },
       "Quizizz.Data.Common/1.0.0": {
@@ -383,6 +558,20 @@
           "bin/placeholder/Quizizz.Services.Mapping.dll": {}
         }
       },
+      "Quizizz.Services.Messaging/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Sendgrid": "9.22.0"
+        },
+        "compile": {
+          "bin/placeholder/Quizizz.Services.Messaging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Quizizz.Services.Messaging.dll": {}
+        }
+      },
       "Quizizz.Services.Tools/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -410,6 +599,32 @@
         "lib/net461/AutoMapper.xml",
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authorization/2.2.0": {
+      "sha512": "/L0W8H3jMYWyaeA9gBJqS/tSWBegP9aaTM0mjRhxTttBY9z4RVDRYJ2CwPAmAXIuPr3r1sOw+CS8jFVRGHRezQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authorization/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
+        "microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
+      "sha512": "Aqr/16Cu5XmGv7mLKJvXRxhhd05UJ7cTTSaUV4MZ3ynAzfgWjsAdpIU8FWuxwAjmVdmI8oOWuVDrbs+sRkhKnA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.connections.abstractions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "microsoft.aspnetcore.connections.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.connections.abstractions.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.1": {
@@ -450,6 +665,19 @@
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.1": {
       "sha512": "c2OGE8wzdJOMKP+GkKZHHMKVMSHkdpO4ryjcvQuaPQoXW/tsg6ZYES2Y1eyq162buSbRublI7sMxJsGtJs+McQ==",
       "type": "package",
@@ -465,6 +693,47 @@
         "lib/netstandard2.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
         "microsoft.aspnetcore.identity.entityframeworkcore.5.0.1.nupkg.sha512",
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Common/1.1.0": {
+      "sha512": "TyLgQ4y4RVUIxiYFnHT181/rJ33/tL/NcBWC9BwLpulDt5/yGCG4EvsToZ49EBQ7256zj+R6OGw6JF+jj6MdPQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.common/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.2/Microsoft.AspNetCore.SignalR.Common.dll",
+        "lib/netcoreapp2.2/Microsoft.AspNetCore.SignalR.Common.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.xml",
+        "microsoft.aspnetcore.signalr.common.1.1.0.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.common.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Core/1.1.0": {
+      "sha512": "mk69z50oFk2e89d3F/AfKeAvP3kvGG7MHG4ErydZiUd3ncSRq0kl0czq/COn/QVKYua9yGr2LIDwuR1C6/pu8Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.core/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Core.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Core.xml",
+        "microsoft.aspnetcore.signalr.core.1.1.0.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Protocols.Json/1.1.0": {
+      "sha512": "BOsjatDJnvnnXCMajOlC0ISmiFnJi/EyJzMo0i//5fZJVCLrQ4fyV/HzrhhAhSJuwJOQDdDozKQ9MB9jHq84pg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.protocols.json/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
+        "microsoft.aspnetcore.signalr.protocols.json.1.1.0.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.protocols.json.nuspec"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -820,6 +1089,75 @@
         "version.txt"
       ]
     },
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "type": "package",
+      "path": "newtonsoft.json/11.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
+    "SendGrid/9.22.0": {
+      "sha512": "5vXkfOqPhi6W5/tEmRcTVJakT69SXiCGqVRERYF4ZAtJ4alylzlOqin6w8Xrog0Brf3RL+4BKXI+CwKbFLtteA==",
+      "type": "package",
+      "path": "sendgrid/9.22.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SendGrid.dll",
+        "lib/net40/SendGrid.pdb",
+        "lib/net40/SendGrid.xml",
+        "lib/net452/SendGrid.dll",
+        "lib/net452/SendGrid.pdb",
+        "lib/net452/SendGrid.xml",
+        "lib/netstandard1.3/SendGrid.dll",
+        "lib/netstandard1.3/SendGrid.pdb",
+        "lib/netstandard1.3/SendGrid.xml",
+        "lib/netstandard2.0/SendGrid.dll",
+        "lib/netstandard2.0/SendGrid.pdb",
+        "lib/netstandard2.0/SendGrid.xml",
+        "sendgrid.9.22.0.nupkg.sha512",
+        "sendgrid.nuspec"
+      ]
+    },
+    "starkbank-ecdsa/1.2.0": {
+      "sha512": "hP53QPYOOEIR44EK9phz+DYliM6DEieDZxpb8GZzE+++qyrWqUscKcyHCC6L9yu/ehllYtqxtT4qrjWDsuQlUQ==",
+      "type": "package",
+      "path": "starkbank-ecdsa/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/StarkbankEcdsa.dll",
+        "lib/net452/StarkbankEcdsa.dll",
+        "lib/netstandard1.3/StarkbankEcdsa.dll",
+        "lib/netstandard2.0/StarkbankEcdsa.dll",
+        "lib/netstandard2.1/StarkbankEcdsa.dll",
+        "starkbank-ecdsa.1.2.0.nupkg.sha512",
+        "starkbank-ecdsa.nuspec"
+      ]
+    },
     "StyleCop.Analyzers/1.2.0-beta.312": {
       "sha512": "SQCTxlYm6+d4rJ1/hNVLNryOZx6y23Z0JYp9WmUu6YtCApNMyUNJ//4yucqP7al2Jv0kwBuTRyK/4qWmGmIA/A==",
       "type": "package",
@@ -1034,6 +1372,28 @@
         "version.txt"
       ]
     },
+    "System.IO.Pipelines/4.5.2": {
+      "sha512": "NOC/SO4gSX6t0tB25xxDPqPEzkksuzW7NVFBTQGAkjXXUPQl7ZtyE83T7tUCP2huFBbPombfCKvq1Ox1aG8D9w==",
+      "type": "package",
+      "path": "system.io.pipelines/4.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/System.IO.Pipelines.dll",
+        "lib/netcoreapp2.1/System.IO.Pipelines.xml",
+        "lib/netstandard1.3/System.IO.Pipelines.dll",
+        "lib/netstandard1.3/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "ref/netstandard1.3/System.IO.Pipelines.dll",
+        "system.io.pipelines.4.5.2.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Memory/4.5.4": {
       "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
@@ -1186,6 +1546,98 @@
         "version.txt"
       ]
     },
+    "System.Threading.Channels/4.5.0": {
+      "sha512": "MEH06N0rIGmRT4LOKQ2BmUO0IxfvmIY/PaouSq+DFQku72OL8cxfw8W99uGpTCFf2vx2QHLRSh374iSM3asdTA==",
+      "type": "package",
+      "path": "system.threading.channels/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/System.Threading.Channels.dll",
+        "lib/netcoreapp2.1/System.Threading.Channels.xml",
+        "lib/netstandard1.3/System.Threading.Channels.dll",
+        "lib/netstandard1.3/System.Threading.Channels.xml",
+        "lib/netstandard2.0/System.Threading.Channels.dll",
+        "lib/netstandard2.0/System.Threading.Channels.xml",
+        "system.threading.channels.4.5.0.nupkg.sha512",
+        "system.threading.channels.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Threading.Tasks.Extensions/4.5.1": {
+      "sha512": "WSKUTtLhPR8gllzIWO2x6l4lmAIfbyMAiTlyXAis4QBDonXK4b4S6F8zGARX4/P8wH3DH+sLdhamCiHn+fTU1A==",
+      "type": "package",
+      "path": "system.threading.tasks.extensions/4.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "ref/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "ref/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "ref/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.tasks.extensions.4.5.1.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "TimeZoneConverter/3.5.0": {
+      "sha512": "ziTcQ5rVxRdtWJEnEqhKBukZGuUQregbf5G7QRrFKj6CwBLss5tSz0dlSHy9gzi5M5ES0PNQ0K2ACP/0XVT5Ow==",
+      "type": "package",
+      "path": "timezoneconverter/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/TimeZoneConverter.dll",
+        "lib/net35/TimeZoneConverter.xml",
+        "lib/net40/TimeZoneConverter.dll",
+        "lib/net40/TimeZoneConverter.xml",
+        "lib/net45/TimeZoneConverter.dll",
+        "lib/net45/TimeZoneConverter.xml",
+        "lib/net461/TimeZoneConverter.dll",
+        "lib/net461/TimeZoneConverter.xml",
+        "lib/net471/TimeZoneConverter.dll",
+        "lib/net471/TimeZoneConverter.xml",
+        "lib/netstandard1.1/TimeZoneConverter.dll",
+        "lib/netstandard1.1/TimeZoneConverter.xml",
+        "lib/netstandard1.3/TimeZoneConverter.dll",
+        "lib/netstandard1.3/TimeZoneConverter.xml",
+        "lib/netstandard2.0/TimeZoneConverter.dll",
+        "lib/netstandard2.0/TimeZoneConverter.xml",
+        "timezoneconverter.3.5.0.nupkg.sha512",
+        "timezoneconverter.nuspec"
+      ]
+    },
+    "Quizizz.Common/1.0.0": {
+      "type": "project",
+      "path": "../../Quizizz.Common/Quizizz.Common.csproj",
+      "msbuildProject": "../../Quizizz.Common/Quizizz.Common.csproj"
+    },
     "Quizizz.Data.Common/1.0.0": {
       "type": "project",
       "path": "../../Data/Quizizz.Data.Common/Quizizz.Data.Common.csproj",
@@ -1201,6 +1653,11 @@
       "path": "../Quizizz.Services.Mapping/Quizizz.Services.Mapping.csproj",
       "msbuildProject": "../Quizizz.Services.Mapping/Quizizz.Services.Mapping.csproj"
     },
+    "Quizizz.Services.Messaging/1.0.0": {
+      "type": "project",
+      "path": "../Quizizz.Services.Messaging/Quizizz.Services.Messaging.csproj",
+      "msbuildProject": "../Quizizz.Services.Messaging/Quizizz.Services.Messaging.csproj"
+    },
     "Quizizz.Services.Tools/1.0.0": {
       "type": "project",
       "path": "../Quizizz.Services.Tools/Quizizz.Services.Tools.csproj",
@@ -1209,11 +1666,15 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
+      "Microsoft.AspNetCore.SignalR.Core >= 1.1.0",
+      "Quizizz.Common >= 1.0.0",
       "Quizizz.Data.Common >= 1.0.0",
       "Quizizz.Data.Models >= 1.0.0",
       "Quizizz.Services.Mapping >= 1.0.0",
+      "Quizizz.Services.Messaging >= 1.0.0",
       "Quizizz.Services.Tools >= 1.0.0",
-      "StyleCop.Analyzers >= 1.2.0-beta.312"
+      "StyleCop.Analyzers >= 1.2.0-beta.312",
+      "TimeZoneConverter >= 3.5.0"
     ]
   },
   "packageFolders": {
@@ -1253,8 +1714,14 @@
             "F:\\myrepos\\Quizizz\\Data\\Quizizz.Data.Models\\Quizizz.Data.Models.csproj": {
               "projectPath": "F:\\myrepos\\Quizizz\\Data\\Quizizz.Data.Models\\Quizizz.Data.Models.csproj"
             },
+            "F:\\myrepos\\Quizizz\\Quizizz.Common\\Quizizz.Common.csproj": {
+              "projectPath": "F:\\myrepos\\Quizizz\\Quizizz.Common\\Quizizz.Common.csproj"
+            },
             "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Mapping\\Quizizz.Services.Mapping.csproj": {
               "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Mapping\\Quizizz.Services.Mapping.csproj"
+            },
+            "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Messaging\\Quizizz.Services.Messaging.csproj": {
+              "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Messaging\\Quizizz.Services.Messaging.csproj"
             },
             "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj": {
               "projectPath": "F:\\myrepos\\Quizizz\\Services\\Quizizz.Services.Tools\\Quizizz.Services.Tools.csproj"
@@ -1272,11 +1739,19 @@
       "netstandard2.1": {
         "targetAlias": "netstandard2.1",
         "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Core": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          },
           "StyleCop.Analyzers": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers",
             "suppressParent": "All",
             "target": "Package",
             "version": "[1.2.0-beta.312, )"
+          },
+          "TimeZoneConverter": {
+            "target": "Package",
+            "version": "[3.5.0, )"
           }
         },
         "imports": [

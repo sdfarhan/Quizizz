@@ -14,15 +14,15 @@
     using Quizizz.Services.Mapping;
     using Quizizz.Services.Tools.Expressions;
 
-    public class QuizzesService
+    public class QuizzesService : IQuizzesService
     {
         private readonly IDeletableEntityRepository<Quiz> quizRepository;
-        private readonly IDeletableEntityRepository<Password> passwordRepository;
+        private readonly IRepository<Password> passwordRepository;
         private readonly IExpressionBuilder expressionBuilder;
 
         public QuizzesService(
             IDeletableEntityRepository<Quiz> quizRepository,
-            IDeletableEntityRepository<Password> passwordRepository,
+            IRepository<Password> passwordRepository,
             IExpressionBuilder expressionBuilder)
         {
             this.quizRepository = quizRepository;
@@ -156,8 +156,8 @@
             }
 
             var eventGroups = await quizQuery
-                .SelectMany(x => x.Event.EventGroups
-                .Where(x => x.Group.StudentGroups
+                .SelectMany(x => x.Event.EventsGroups
+                .Where(x => x.Group.StudentsGroups
                 .Any(x => x.StudentId == userId)))
                 .ToListAsync();
 

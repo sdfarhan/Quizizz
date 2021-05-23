@@ -4,7 +4,7 @@
 
     using Quizizz.Data.Common.Models;
 
-    public interface IDeletableEntityRepository<TEntity> : IDeletableEntityRepository<TEntity>
+    public interface IDeletableEntityRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IDeletableEntity
     {
         IQueryable<TEntity> AllWithDeleted();

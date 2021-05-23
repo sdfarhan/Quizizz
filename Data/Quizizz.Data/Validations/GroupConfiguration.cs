@@ -14,11 +14,11 @@
     {
         public void Configure(EntityTypeBuilder<Group> builder)
         {
-            builder.HasMany(g => g.StudentGroups)
+            builder.HasMany(g => g.StudentsGroups)
                 .WithOne(sg => sg.Group)
                 .HasForeignKey(sg => sg.GroupId);
 
-            builder.HasMany(g => g.EventGroups)
+            builder.HasMany(g => g.EventsGroups)
                 .WithOne(eg => eg.Group)
                 .HasForeignKey(eg => eg.GroupId);
 

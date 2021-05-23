@@ -13,15 +13,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.312" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="TimeZoneConverter" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Quizizz.Data.Common\Quizizz.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\Quizizz.Data.Models\Quizizz.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Quizizz.Common\Quizizz.Common.csproj" />
     <ProjectReference Include="..\Quizizz.Services.Mapping\Quizizz.Services.Mapping.csproj" />
+    <ProjectReference Include="..\Quizizz.Services.Messaging\Quizizz.Services.Messaging.csproj" />
     <ProjectReference Include="..\Quizizz.Services.Tools\Quizizz.Services.Tools.csproj" />
   </ItemGroup>
 

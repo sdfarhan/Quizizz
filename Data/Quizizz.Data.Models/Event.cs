@@ -29,9 +29,11 @@ namespace Quizizz.Data.Models
 
         public virtual Quiz Quiz { get; set; }
 
+        public string QuizName { get; set; }
+
         public virtual ICollection<Result> Results { get; set; }
 
-        public virtual ICollection<EventGroup> EventGroups { get; set; }
+        public virtual ICollection<EventGroup> EventsGroups { get; set; }
 
         public virtual ICollection<ScheduledJob> ScheduledJobs { get; set; }
     }

@@ -19,8 +19,8 @@
 
         public virtual ApplicationUser Creator { get; set; }
 
-        public virtual ICollection<StudentGroup> StudentGroups { get; set; }
+        public virtual ICollection<StudentGroup> StudentsGroups { get; set; }
 
-        public virtual ICollection<EventGroup> EventGroups { get; set; }
+        public virtual ICollection<EventGroup> EventsGroups { get; set; }
     }
 }
