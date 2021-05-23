@@ -28,7 +28,6 @@
             this.expressionBuilder = expressionBuilder;
         }
 
-
         public async Task<bool> AddStudentAsync(string email, string teacherId)
         {
             var student = await this.userRepository

@@ -7,8 +7,10 @@
 
     public interface IScheduledJobsService
     {
-        Task DeleteJobsAsync(string id, bool v);
         Task CreateEndEventJobAsync(string eventId, TimeSpan endingDelay);
+
         Task CreateStartEventJobAsync(string eventId, TimeSpan activationDelay);
+
+        Task DeleteJobsAsync(string id, bool all, bool deleteActivationJobCondition = false);
     }
 }

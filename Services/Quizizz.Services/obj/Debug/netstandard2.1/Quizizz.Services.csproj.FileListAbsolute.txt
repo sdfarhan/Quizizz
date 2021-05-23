@@ -1,0 +1,9 @@
+F:\myrepos\Quizizz\Services\Quizizz.Services\bin\Debug\netstandard2.1\Quizizz.Common.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services\bin\Debug\netstandard2.1\Quizizz.Data.Common.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services\bin\Debug\netstandard2.1\Quizizz.Data.Models.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services\bin\Debug\netstandard2.1\Quizizz.Services.Mapping.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services\bin\Debug\netstandard2.1\Quizizz.Services.Messaging.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services\bin\Debug\netstandard2.1\Quizizz.Services.Tools.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services\obj\Debug\netstandard2.1\Quizizz.Services.csprojAssemblyReference.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services\obj\Debug\netstandard2.1\Quizizz.Services.AssemblyInfoInputs.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services\obj\Debug\netstandard2.1\Quizizz.Services.AssemblyInfo.cs

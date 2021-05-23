@@ -53,13 +53,13 @@
         public async Task DeleteAsync(string eventId)
         {
             var eventToBeDeleted = await this.GetEventById(eventId);
-            var quizId = @event.QuizId;
+            var quizId = eventToBeDeleted.QuizId;
             if (quizId != null)
             {
                 await this.quizService.DeleteEventFromQuizAsync(eventId, quizId);
             }
 
-            this.repository.Delete(@event);
+            this.repository.Delete(eventToBeDeleted);
             await this.repository.SaveChangesAsync();
         }
 
@@ -157,7 +157,7 @@
         public async Task<IList<T>> GetAllFiteredByStatusAndGroupAsync<T>(
             Status status, string groupId, string creatorId = null)
         {
-            var query = this.repository.AllAsNoTracking().Where(x => !x.EventsGroups.Any(x => x.GroupId == groupId));
+            var query = this.repository.AllAsNoTracking().Where(x => x.EventsGroups.Any(x => x.GroupId == groupId));
 
             if (creatorId != null)
             {
@@ -218,6 +218,7 @@
         {
             var @event = await this.GetEventById(eventId);
             @event.QuizId = null;
+            @event.QuizName = null;
 
             if (@event.Status == Status.Active)
             {

@@ -20,5 +20,15 @@
         {
             public const string TimeZoneIana = "timeZoneIana";
         }
+
+        public static class EmailSender
+        {
+            public const string EventInvitationSubject = "Event Inviatition";
+            public const string ConfirmEmailSubject = "Confirm your email";
+            public const string SenderEmail = "quizizzproject@gmail.com";
+            public const string SenderName = "Quizizz Team";
+            public const string StringToReplace = "{password}";
+        }
+
     }
 }
