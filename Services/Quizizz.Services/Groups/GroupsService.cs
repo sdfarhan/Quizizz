@@ -67,9 +67,10 @@
 
             if (eventId != null)
             {
-
+                query = query.Where(x => x.EventGroups.Any(x => x.EventId == eventId));
             }
-            throw new NotImplementedException();
+
+            return await query.OrderByDescending(x => x.CreatedOn).To<T>().ToListAsync();
         }
 
         public async Task<IList<T>> GetGroupModelAsync<T>(string groupId)
@@ -92,7 +93,7 @@
 
         public async Task DeleteEventFromGroupAsync(string groupId, string eventId)
         {
-            throw new NotImplementedException();
+            await this.eventsGroupsService.DeleteAsync(eventId, groupId);
         }
 
         public async Task DeleteStudentFromGroupAsync(string groupId, string studentId)
@@ -115,13 +116,18 @@
 
         public async Task AssignEventsToGroupAsync(string groupId, IList<string> evenstIds)
         {
-            throw new NotImplementedException();
+            foreach (var eventId in evenstIds)
+            {
+                await this.eventsGroupsService.CreateEventGroupAsync(eventId, groupId);
+            }
         }
 
         public async Task<IEnumerable<T>> GetAllByEventIdAsync<T>(string eventId)
-        {
-            throw new NotImplementedException();
-        }
+        => await this.groupRepository
+                .AllAsNoTracking()
+                .Where(x => x.EventGroups.Any(ev => ev.EventId == eventId))
+                .To<T>()
+                .ToListAsync();
 
         public async Task<IList<T>> GetAllPerPageAsync<T>(
             int page,
@@ -175,8 +181,10 @@
         }
 
         public async Task<T> GetEventsFirstGroupAsync<T>(string eventId)
-        {
-            throw new NotImplementedException();
-        }
+        => await this.groupRepository
+                .AllAsNoTracking()
+                .Where(x => x.EventGroups.Any(ev => ev.EventId == eventId))
+                .To<T>()
+                .FirstOrDefaultAsync();
     }
 }
