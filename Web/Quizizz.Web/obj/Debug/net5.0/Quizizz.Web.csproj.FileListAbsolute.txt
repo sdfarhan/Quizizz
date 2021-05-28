@@ -501,3 +501,13 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Quizizz.Web.dll
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\ref\Quizizz.Web.dll
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Quizizz.Web.pdb
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Quizizz.Web.genruntimeconfig.cache
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_AdminSideNavBarPartial.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_LayoutStudent.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_MakeQuizPartial.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Students\Index.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Students\Privacy.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_TakeQuizPartial.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_SideNavBarPartial.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Students\_ViewStart.cshtml.g.cs

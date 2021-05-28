@@ -10,12 +10,12 @@
 
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.UI.Services;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.AspNetCore.WebUtilities;
     using Microsoft.Extensions.Logging;
     using Quizizz.Data.Models;
+    using Quizizz.Services.Messaging;
 
     public class RegisterModel : PageModel
     {
@@ -73,6 +73,8 @@
                         protocol: this.Request.Scheme);
 
                     await this.emailSender.SendEmailAsync(
+                        "syedfarhan9034@gmail.com",
+                        "Quizizz",
                         this.Input.Email,
                         "confirm Your Email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>");

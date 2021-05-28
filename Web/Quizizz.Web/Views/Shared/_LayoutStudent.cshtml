@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
+
     <environment names="Development">
         <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/img/favicon.ico" rel="icon" type="image/png" />
@@ -26,14 +27,35 @@
 
 </head>
 <body class="index">
-    <partial name="~/Views/Shared/_LoginPartial.cshtml" />
-    <main class="pt-5" id="page-container" role="main">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" asp-action="Index" asp-controller="Students" asp-area="">Quizizz</a>
+
+                <button class="navbar-toggler collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNavDropdown-7"
+                        aria-controls="navbarNavDropdown-7"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown-7">
+                    <ul class="navbar-nav ml-auto mx-2">
+                        @RenderSection("Profile", required: false)
+                        @RenderSection("Logout", required: false)
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="pt-5 container" id="page-container" role="main">
         <div class="row" id="content-wrap">
-            <partial name="_BublesAndCirclePartial" />
-            <partial name="_AdminSideNavBarPartial" />
+            <partial name="_SideNavBarPartial" />
             <div class="col-12 col-md-9 ml-md-5">
-                @RenderSection("InnerNav", required: false)
-                
+                <partial name="_BubblesAndCirclesPartial" />
+
                 @this.RenderBody()
             </div>
         </div>
@@ -45,13 +67,11 @@
         <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
         <script src="~/lib/signalr.js/jquery.signalR.min.js" asp-append-version="true"></script>
-        <script src="~/vendor/popper/popper.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging, Production">
         <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
         <script src="~/lib/signalr.js/jquery.signalR.min.js" asp-append-version="true"></script>
-        <script src="~/vendor/popper/popper.min.js" asp-append-version="true"></script>
     </environment>
     
     @await this.RenderSectionAsync("Scripts", required: false)

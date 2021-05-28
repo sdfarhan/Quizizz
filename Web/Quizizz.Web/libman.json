@@ -35,6 +35,14 @@
         "dist/jquery.validate.unobtrusive.js",
         "dist/jquery.validate.unobtrusive.min.js"
       ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "signalr.js@2.4.2",
+      "destination": "wwwroot/lib/signalr.js/",
+      "files": [
+        "jquery.signalR.min.js"
+      ]
     }
   ]
 }

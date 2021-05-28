@@ -17,5 +17,12 @@
         {
             public const string RangeMessage = "The {0} must be at least {2} and at max {1} characters long.";
         }
+
+        public static class Password
+        {
+            public const int MaxLength = 16;
+
+            public const int MinLength = 8;
+        }
     }
 }
