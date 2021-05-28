@@ -1,4 +1,4 @@
-namespace Quizizz.Web.Areas.Identity.Pages.Account
+﻿namespace Quizizz.Web.Areas.Identity.Pages.Account
 {
     using System;
     using System.Collections.Generic;

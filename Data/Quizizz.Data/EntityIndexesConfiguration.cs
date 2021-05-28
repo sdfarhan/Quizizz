@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using Quizizz.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using Quizizz.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

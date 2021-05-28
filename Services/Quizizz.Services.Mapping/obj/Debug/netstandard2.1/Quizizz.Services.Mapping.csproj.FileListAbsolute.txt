@@ -1,0 +1,8 @@
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\bin\Debug\netstandard2.1\Quizizz.Services.Mapping.deps.json
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\bin\Debug\netstandard2.1\Quizizz.Services.Mapping.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\bin\Debug\netstandard2.1\Quizizz.Services.Mapping.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.AssemblyInfoInputs.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.AssemblyInfo.cs
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.csproj.CoreCompileInputs.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.pdb

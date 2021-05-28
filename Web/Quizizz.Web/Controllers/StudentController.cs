@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Quizizz.Web.Controllers
+﻿namespace Quizizz.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Mvc;
+
     public class StudentController : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }

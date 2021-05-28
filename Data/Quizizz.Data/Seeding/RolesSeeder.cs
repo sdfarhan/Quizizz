@@ -4,11 +4,10 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using Quizizz.Common;
-    using Quizizz.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
+    using Quizizz.Common;
+    using Quizizz.Data.Models;
 
     internal class RolesSeeder : ISeeder
     {

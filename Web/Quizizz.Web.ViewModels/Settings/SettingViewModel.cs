@@ -1,9 +1,8 @@
 ﻿namespace Quizizz.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using Quizizz.Data.Models;
     using Quizizz.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

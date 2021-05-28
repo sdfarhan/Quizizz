@@ -17,7 +17,9 @@
     using Quizizz.Data.Models;
 
     [AllowAnonymous]
+#pragma warning disable SA1649 // File name should match first type name
     public class LoginModel : PageModel
+#pragma warning restore SA1649 // File name should match first type name
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
@@ -62,7 +64,7 @@
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= this.Url.Content("~/");
+            _ = returnUrl ?? this.Url.Content("~/");
 
             if (this.ModelState.IsValid)
             {
@@ -82,8 +84,10 @@
                     }
 
                     this.logger.LogInformation($"{user.UserName} logged in.");
-                    var option = new CookieOptions();
-                    option.Expires = DateTime.Now.AddDays(30);
+                    var option = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddDays(30),
+                    };
                     this.Response.Cookies.Append(GlobalConstants.Coockies.TimeZoneIana, this.Input.TimeZoneIana, option);
                     return this.LocalRedirect(returnUrl);
                 }

@@ -3,6 +3,7 @@ namespace Quizizz.Data.Models
 {
     using System;
     using System.Collections.Generic;
+
     using Quizizz.Data.Common.Enumerations;
     using Quizizz.Data.Common.Models;
 

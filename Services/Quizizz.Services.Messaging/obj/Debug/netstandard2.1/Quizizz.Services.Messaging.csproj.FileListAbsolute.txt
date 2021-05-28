@@ -1,0 +1,8 @@
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\bin\Debug\netstandard2.1\Quizizz.Services.Messaging.deps.json
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\bin\Debug\netstandard2.1\Quizizz.Services.Messaging.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\bin\Debug\netstandard2.1\Quizizz.Services.Messaging.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.AssemblyInfoInputs.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.AssemblyInfo.cs
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.csproj.CoreCompileInputs.cache
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.dll
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.pdb

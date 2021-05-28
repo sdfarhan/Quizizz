@@ -1,4 +1,4 @@
-namespace Quizizz.Web.Areas.Identity.Pages.Account.Manage
+﻿namespace Quizizz.Web.Areas.Identity.Pages.Account.Manage
 {
     using System;
     using System.Collections.Generic;
@@ -23,7 +23,6 @@ namespace Quizizz.Web.Areas.Identity.Pages.Account.Manage
 
         [TempData]
         public string StatusMessage { get; set; }
-
 
         public ChangePasswordModel(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, ILogger<ChangePasswordModel> logger)
         {
@@ -98,6 +97,5 @@ namespace Quizizz.Web.Areas.Identity.Pages.Account.Manage
 
             return this.RedirectToPage();
         }
-
     }
 }

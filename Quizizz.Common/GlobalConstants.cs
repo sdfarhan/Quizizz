@@ -29,6 +29,5 @@
             public const string SenderName = "Quizizz Team";
             public const string StringToReplace = "{password}";
         }
-
     }
 }

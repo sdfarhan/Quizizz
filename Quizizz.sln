@@ -39,7 +39,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quizizz.Web.Tests", "Tests\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quizizz.Web.ViewModels", "Web\Quizizz.Web.ViewModels\Quizizz.Web.ViewModels.csproj", "{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizizz.Services.Tools", "Services\Quizizz.Services.Tools\Quizizz.Services.Tools.csproj", "{A76B3D84-8D16-4993-A116-42330427E027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quizizz.Services.Tools", "Services\Quizizz.Services.Tools\Quizizz.Services.Tools.csproj", "{A76B3D84-8D16-4993-A116-42330427E027}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36E793AE-1CEF-445D-93DD-CD69BAB45731}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
