@@ -16,6 +16,8 @@
 
         public const string TeacherRoleName = "Teacher";
 
+        public const string SplitOption = ", ";
+
         public static class Coockies
         {
             public const string TimeZoneIana = "timeZoneIana";
