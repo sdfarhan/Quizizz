@@ -21,6 +21,7 @@
     using Quizizz.Services.Mapping;
     using Quizizz.Services.Messaging;
     using Quizizz.Services.Tools.Expressions;
+    using Quizizz.Services.Users;
     using Quizizz.Web.ViewModels;
 
     public class Startup
@@ -68,6 +69,7 @@
             services.AddTransient<IEmailSender>(x => new SendGridEmailSender(new LoggerFactory(), this.configuration["Sendgrid"]));
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IExpressionBuilder, ExpressionBuilder>();
+            services.AddTransient<IUsersService, UsersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

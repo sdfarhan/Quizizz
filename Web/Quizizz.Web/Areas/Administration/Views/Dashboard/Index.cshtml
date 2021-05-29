@@ -3,4 +3,27 @@
     this.ViewData["Title"] = "Admin dashboard";
 }
 
-
+<div class="row">
+    <div class="mt-2 mb-5 col-md-9">
+        <div class="component">
+            <form method="get" class="form-inline mb-4" asp-controller="Dashboard" asp-action="Index">
+                SearchBy:
+                <select id="select" class="btn btn-light mt-0 mt-md-3 mt-lg-0 ml-2 mr-3" name="searchCriteria">
+                    <option value="FullName" selected="@(Model.SearchType == "FullName")">full name</option>
+                    <option value="FirstName" selected="@(Model.SearchType == "FirstName")">first name</option>
+                    <option value="LastName" selected="@(Model.SearchType == "LastName")">last name</option>
+                    <option value="Email" selected="@(Model.SearchType == "Role")">role</option>
+                    <option value="Adminitrator" selected="@(Model.SearchType == "Adminitrator")">administrator</option>
+                    <option value="Teacher" selected="@(Model.SearchType == "Teacher")">teacher</option>
+                </select>
+                <div class="form-group flex-grow-1">
+                    <label class="sr-only" for="email4">Email</label>
+                    <input id="input" type="text" class="form-control flex-grow-1 mr-2"
+                           placeholder="Choose Criteria and Enter Your text to search...." name="searchText" value="@Model.SearchString"/>
+                    <button type="submit" class="btn btn-success mt-0 mt-md-3 mt-lg-0">Search</button>
+                </div>
+            </form>
+        </div>
+        @await Html.PartialAsync("_AddNewUserPartial", @Model.NewUser)
+    </div>
+</div>

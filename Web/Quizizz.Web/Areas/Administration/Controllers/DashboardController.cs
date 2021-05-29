@@ -1,5 +1,8 @@
 ﻿namespace Quizizz.Web.Areas.Administration.Controllers
 {
+    using System;
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Quizizz.Common;
@@ -8,20 +11,18 @@
     using Quizizz.Services.Users;
     using Quizizz.Web.ViewModels.Administration.Dashboard;
     using Quizizz.Web.ViewModels.UsersInRole;
-    using System;
-    using System.Threading.Tasks;
 
     public class DashboardController : AdministrationController
     {
         private const int PerPageDefaultValue = 5;
         private readonly RoleManager<ApplicationRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly UsersService userService;
+        private readonly IUsersService userService;
 
         public DashboardController(
             RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager,
-            UsersService userService)
+            IUsersService userService)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
@@ -59,7 +60,7 @@
                 {
                     var appUser = await this.userManager.FindByIdAsync(user.Id);
                     var roles = await this.userManager.GetRolesAsync(appUser);
-                    user.Role = string.Join(GlobalConstants.SplitOption, role);
+                    user.Role = string.Join(GlobalConstants.SplitOption, roles);
                 }
 
                 model.Users = users;
