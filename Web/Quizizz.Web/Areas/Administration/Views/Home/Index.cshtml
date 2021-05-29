@@ -1,0 +1,22 @@
+﻿@model PasswordInputViewModel
+@{
+    ViewData["title"] = "Admin Home Page";
+}
+
+@if (Model.Error != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" >
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">x</span>
+        </button>
+        <i class="fa fa-exclamation-circle"></i>
+        <strong>Oh no!</strong> @Model.Error
+    </div>    
+}
+
+<div class="col-12 col-md-9 offset-2">
+    <div class="row">
+        <partial name="_MakeQuizPartial" />
+        <partial name="_TakeQuizPartial" />
+    </div>
+</div>
