@@ -511,3 +511,5 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_TakeQuiz
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_SideNavBarPartial.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Students\_ViewStart.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Answers\AnswerInput.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Quizzes\Start.cshtml.g.cs
