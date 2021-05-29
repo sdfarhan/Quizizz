@@ -3,6 +3,10 @@
 @{
     ViewData["Title"] = "Manage Email";
     ViewData["ActivePage"] = ManageNavPages.Email;
+    if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) || this.User.IsInRole(GlobalConstants.TeacherRoleName))
+    {
+        ViewData["Layout"] = GlobalConstants.AdminLayout;
+    }
 }
 
 <h4>@ViewData["Title"]</h4>
