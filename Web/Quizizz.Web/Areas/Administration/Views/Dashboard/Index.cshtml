@@ -116,7 +116,7 @@
                     </li>
                     @for (int i = 1; i <= @Model.PagesCount; i++)
                     {
-                        var active = i == Model.CurrentPage ? "active" : string.Empty;
+                        var active = i == Model.CurrentPage ? "active text-success" : string.Empty;
                         <li class="page-item">
                             <a class="page-link @active"
                                asp-area="Administration"
@@ -125,19 +125,19 @@
                                asp-route-page="@i"
                                asp-route-searchText="@Model.SearchString"
                                asp-route-searchCriteria="@Model.SearchType">
-                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                @i
                             </a>
                         </li>
                     }
-                    <li class="page-item @disableLeftArrow">
-                        <a class="page-link @disableRightArrow"
+                    <li class="page-item @disableRightArrow">
+                        <a class="page-link"
                            asp-area="Administration"
                            asp-controller="dashboard"
                            asp-action="Index"
                            asp-route-page="@Model.NextPage"
                            asp-route-searchText="@Model.SearchString"
                            asp-route-searchCriteria="@Model.SearchType">
-                            <i class="fas fa-arrow-alt-circle-left"></i>
+                            <i class="fas fa-arrow-alt-circle-right"></i>
                         </a>
                     </li>
                 </ul>
