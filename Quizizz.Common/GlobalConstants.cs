@@ -4,6 +4,8 @@
     {
         public const string Administration = "Administration";
 
+        public const string Administrator = "Administrator";
+
         public const string AdministratorRoleName = "Administrator";
 
         public const string AdministratorAndTeacherAuthorizationString = "Administrator, Teacher";
@@ -13,6 +15,8 @@
         public const string Empty = "empty";
 
         public const string PageToReturnTo = "Page";
+
+        public const string Teacher = "Teacher";
 
         public const string TeacherRoleName = "Teacher";
 

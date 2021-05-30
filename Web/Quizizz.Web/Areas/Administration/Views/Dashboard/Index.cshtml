@@ -25,5 +25,142 @@
             </form>
         </div>
         @await Html.PartialAsync("_AddNewUserPartial", @Model.NewUser)
+        <div class="navbar navbar-expand-lg navbar-dark bg-neutral p-3">
+            <h5 class="mb-0">Roles Management</h5>
+        </div>
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr class="table-active bg-white">
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Users.Any())
+                {
+                    var count = 0;
+                    @foreach (var user in Model.Users)
+                    {
+                        count++;
+                        <tr class="table-warning">
+                            <th scope="row" class="pt-4">@user.FullName</th>
+                            <td class="pt-4">@user.Email</td>
+                            <td class="pt-4">@user.Role</td>
+                            <td>
+                                @if (user.Role.Split(GlobalConstants.SplitOption).Length == 1)
+                                {
+                                    <a class="btn btn-primary"
+                                            asp-area="Administration"
+                                            asp-controller="Dashboard"
+                                            asp-action="Delete"
+                                            asp-route-id="@user.Id"
+                                            asp-route-roleName ="@user.Role">
+                                        Delete
+                                    </a>
+                                }
+                                else
+                                {
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle"
+                                                type="button"
+                                                id="dropDownMenuButton"
+                                                data-toggle="dropdown"
+                                                aria-haspopup="true"
+                                                aria-expanded="true">
+                                            Delete
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item"
+                                               asp-area="Administration"
+                                               asp-controller="Dashboard"
+                                               asp-action="Delete"
+                                               asp-route-id="@user.Id"
+                                               asp-route-roleName="@GlobalConstants.AdministratorRoleName">
+                                                @GlobalConstants.Administrator
+                                            </a>
+                                            <a class="dropdown-item"
+                                               asp-area="Administration"
+                                               asp-controller="Dashboard"
+                                               asp-action="Delete"
+                                               asp-route-id="@user.Id"
+                                               asp-route-roleName="@GlobalConstants.TeacherRoleName">
+                                                @GlobalConstants.Teacher
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            </td>
+                        </tr> 
+                    }
+                }
+            </tbody>
+        </table>
+        @if (Model.PagesCount > 1)
+        {
+            var disableLeftArrow = Model.CurrentPage == 1 ? "disabled" : string.Empty;
+            var disableRightArrow = Model.CurrentPage == Model.PagesCount ? "disabled" : string.Empty;
+            <div class="text-center mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @disableLeftArrow">
+                        <a class="page-link"
+                           asp-area="Administration"
+                           asp-controller="dashboard"
+                           asp-action="Index"
+                           asp-route-page="@Model.PreviousPage"
+                           asp-route-searchText="@Model.SearchString"
+                           asp-route-searchCriteria="@Model.SearchType">
+                            <i class="fas fa-arrow-alt-circle-left"></i>
+                        </a>
+                    </li>
+                    @for (int i = 1; i <= @Model.PagesCount; i++)
+                    {
+                        var active = i == Model.CurrentPage ? "active" : string.Empty;
+                        <li class="page-item">
+                            <a class="page-link @active"
+                               asp-area="Administration"
+                               asp-controller="dashboard"
+                               asp-action="Index"
+                               asp-route-page="@i"
+                               asp-route-searchText="@Model.SearchString"
+                               asp-route-searchCriteria="@Model.SearchType">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                            </a>
+                        </li>
+                    }
+                    <li class="page-item @disableLeftArrow">
+                        <a class="page-link @disableRightArrow"
+                           asp-area="Administration"
+                           asp-controller="dashboard"
+                           asp-action="Index"
+                           asp-route-page="@Model.NextPage"
+                           asp-route-searchText="@Model.SearchString"
+                           asp-route-searchCriteria="@Model.SearchType">
+                            <i class="fas fa-arrow-alt-circle-left"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        }
     </div>
+    <aside class="col-md-3">
+        <div>
+            <a href="/hangfire" target="_blank" class="btn btn-primary manage-account-btn ml-4 mb-5">
+                Event Scheduler
+                <i class="far fa-arrow-alt-circle-right ml-1"></i>
+            </a>
+        </div>
+        <div class="headline headline-md">
+            <h4 class="text-center">last Updates</h4>
+            <hr />
+            <ul id="updates" class="navbar-nav">
+            </ul>
+        </div>
+    </aside>
 </div>
+
+@section InnerNav
+{
+    @await Html.PartialAsync("_DashboardNavBarPartial")
+}

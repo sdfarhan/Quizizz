@@ -515,3 +515,4 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\V
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Quizzes\Start.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Home\Index.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Shared\_AddNewUserPartial.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Shared\_DashboardNavBarPartial.cshtml.g.cs
