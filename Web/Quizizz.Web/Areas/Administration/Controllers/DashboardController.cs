@@ -10,6 +10,7 @@
     using Quizizz.Services.Data;
     using Quizizz.Services.Users;
     using Quizizz.Web.ViewModels.Administration.Dashboard;
+    using Quizizz.Web.ViewModels.Students;
     using Quizizz.Web.ViewModels.UsersInRole;
 
     public class DashboardController : AdministrationController
@@ -69,6 +70,27 @@
 
             model.NewUser.IsNotAdded = invalidEmail != null ? true : false;
             model.NewUser.Email = invalidEmail ?? null;
+
+            return this.View(model);
+        }
+
+        public async Task<IActionResult> StudentsAll(string searchText, string searchCriteria, int page = 1, int countPerPage = PerPageDefaultValue)
+        {
+            var model = new StudentsAllViewModel
+            {
+                CurrentPage = page,
+                PagesCount = 0,
+                SearchString = searchText,
+                SearchType = searchCriteria,
+            };
+
+            var allStudentsCount = await this.userService.GetAllStudentsCountAsync(null, searchCriteria, searchText);
+
+            if (allStudentsCount > 0)
+            {
+                model.Students = await this.userService.GetAllStudentsPerPageAsync<StudentsViewModel>(page, countPerPage, null, searchCriteria, searchText);
+                model.PagesCount = (int)Math.Ceiling(allStudentsCount / (decimal)countPerPage);
+            }
 
             return this.View(model);
         }

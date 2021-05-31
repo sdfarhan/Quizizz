@@ -17,6 +17,8 @@
 
         Task<IList<T>> GetAllStudentsAsync<T>(string teacherId = null, string groupId = null);
 
+        Task<IList<T>> GetAllStudentsPerPageAsync<T>(int page, int countPerPage, string teacherId = null, string searchCriteria = null, string searchText = null);
+
         Task<int> GetAllStudentsCountAsync(string teacherId = null, string searchCriteria = null, string searchText = null);
 
         Task<IList<T>> GetAllStudentsCountAsync<T>(int page, int countPerPage, string teacherId = null, string searchCriteria = null, string searchText = null);

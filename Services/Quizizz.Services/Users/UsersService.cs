@@ -144,6 +144,29 @@
             .To<T>()
             .ToListAsync();
 
+        public async Task<IList<T>> GetAllStudentsPerPageAsync<T>(int page, int countPerPage, string teacherId = null, string searchCriteria = null, string searchText = null)
+        {
+            var query = this.userRepository.AllAsNoTracking();
+
+            if (teacherId != null)
+            {
+                query = query.Where(x => x.TeacherId == teacherId);
+            }
+
+            if (searchCriteria != null && searchText != null)
+            {
+                var filter = this.expressionBuilder.GetExpression<ApplicationUser>(searchCriteria, searchText);
+                query = query.Where(filter);
+            }
+
+            return await query
+                .OrderByDescending(x => x.CreatedOn)
+                .Skip(countPerPage * (page - 1))
+                .Take(countPerPage)
+                .To<T>()
+                .ToListAsync();
+        }
+
         public async Task<int> GetAllStudentsCountAsync(
             string teacherId = null,
             string searchCriteria = null,
@@ -191,5 +214,6 @@
                 .To<T>()
                 .ToListAsync();
         }
+
     }
 }
