@@ -1,4 +1,4 @@
-﻿@model DashboardIndexViewModel
+﻿@model StudentsAllViewModel
 @{
     this.ViewData["Title"] = "Admin dashboard";
 }
@@ -6,93 +6,80 @@
 <div class="row">
     <div class="mt-2 mb-5 col-md-9">
         <div class="component">
-            <form method="get" class="form-inline mb-4" asp-controller="Dashboard" asp-action="Index">
+            <form method="get" class="form-inline mb-4" asp-controller="Dashboard" asp-action="StudentsAll">
                 SearchBy:
                 <select id="select" class="btn btn-light mt-0 mt-md-3 mt-lg-0 ml-2 mr-3" name="searchCriteria">
                     <option value="FullName" selected="@(Model.SearchType == "FullName")">full name</option>
                     <option value="FirstName" selected="@(Model.SearchType == "FirstName")">first name</option>
                     <option value="LastName" selected="@(Model.SearchType == "LastName")">last name</option>
-                    <option value="Email" selected="@(Model.SearchType == "Role")">role</option>
-                    <option value="Adminitrator" selected="@(Model.SearchType == "Adminitrator")">administrator</option>
-                    <option value="Teacher" selected="@(Model.SearchType == "Teacher")">teacher</option>
+                    <option value="Email" selected="@(Model.SearchType == "Email")">last name</option>
                 </select>
                 <div class="form-group flex-grow-1">
                     <label class="sr-only" for="email4">Email</label>
                     <input id="input" type="text" class="form-control flex-grow-1 mr-2"
-                           placeholder="Choose Criteria and Enter Your text to search...." name="searchText" value="@Model.SearchString"/>
+                           placeholder="Choose Criteria and Enter Your text to search...." name="searchText" value="@Model.SearchString" />
                     <button type="submit" class="btn btn-success mt-0 mt-md-3 mt-lg-0">Search</button>
                 </div>
             </form>
         </div>
-        @await Html.PartialAsync("_AddNewUserPartial", @Model.NewUser)
-        <div class="navbar navbar-expand-lg navbar-dark bg-neutral p-3">
-            <h5 class="mb-0">Roles Management</h5>
+        @*@await Html.PartialAsync("_AddNewUserPartial", @Model.NewUser)*@
+        <div class="navbar navbar-expand-lg navbar-dark bg-neutral p-2">
+            <h5 class="mb-0">Students Management</h5>
         </div>
         <table class="table table-hover mb-0">
             <thead>
                 <tr class="table-active bg-white">
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Role</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @if (Model.Users.Any())
+                @if (Model.Students.Any())
                 {
                     var count = 0;
-                    @foreach (var user in Model.Users)
+                    @foreach (var student in Model.Students)
                     {
-                        count++;
-                        <tr class="table-warning">
-                            <th scope="row" class="pt-4">@user.FullName</th>
-                            <td class="pt-4">@user.Email</td>
-                            <td class="pt-4">@user.Role</td>
+                        var targetId = "Student" + count++.ToString();
+                        var target = "#" + targetId;
+                        <tr class="table-danger">
+                            <th scope="row" class="pt-4">@student.FullName</th>
+                            <td class="pt-4">@student.Email</td>
                             <td>
-                                @if (user.Role.Split(GlobalConstants.SplitOption).Length == 1)
-                                {
-                                    <a class="btn btn-primary"
-                                            asp-area="Administration"
-                                            asp-controller="Dashboard"
-                                            asp-action="Delete"
-                                            asp-route-id="@user.Id"
-                                            asp-route-roleName ="@user.Role">
-                                        Delete
-                                    </a>
-                                }
-                                else
-                                {
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle"
-                                                type="button"
-                                                id="dropDownMenuButton"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="true">
-                                            Delete
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item"
-                                               asp-area="Administration"
-                                               asp-controller="Dashboard"
-                                               asp-action="Delete"
-                                               asp-route-id="@user.Id"
-                                               asp-route-roleName="@GlobalConstants.AdministratorRoleName">
-                                                @GlobalConstants.Administrator
-                                            </a>
-                                            <a class="dropdown-item"
-                                               asp-area="Administration"
-                                               asp-controller="Dashboard"
-                                               asp-action="Delete"
-                                               asp-route-id="@user.Id"
-                                               asp-route-roleName="@GlobalConstants.TeacherRoleName">
-                                                @GlobalConstants.Teacher
-                                            </a>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@target">
+                                    Delete
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="@targetId" tabindex="-1" role="dialog" aria-labelledby="@targetId" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="@targetId">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you Sure Want to Delete this student?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                                <a class="btn btn-danger"
+                                                   asp-area="Administration"
+                                                   asp-controller="Students"
+                                                   asp-action="Delete"
+                                                   asp-route-Id="@student.Id">
+                                                    Delete
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                }
+                                </div>
                             </td>
-                        </tr> 
+                        </tr>
+
                     }
                 }
             </tbody>
@@ -164,9 +151,7 @@
 {
     @await Html.PartialAsync("_DashboardNavBarPartial")
 }
-
 @section Scripts
 {
-    <script src="~/js/navigation.js"></script>
-    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/navigation.js" asp-append-version="true"></script>
 }
