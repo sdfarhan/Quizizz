@@ -1,6 +1,6 @@
 ﻿@model StudentsAllViewModel
 @{
-    this.ViewData["Title"] = "Admin dashboard";
+    this.ViewData["Title"] = "Students";
 }
 
 <div class="row">
@@ -93,8 +93,8 @@
                     <li class="page-item @disableLeftArrow">
                         <a class="page-link"
                            asp-area="Administration"
-                           asp-controller="dashboard"
-                           asp-action="Index"
+                           asp-controller="Dashboard"
+                           asp-action="StudentsAll"
                            asp-route-page="@Model.PreviousPage"
                            asp-route-searchText="@Model.SearchString"
                            asp-route-searchCriteria="@Model.SearchType">
@@ -103,12 +103,12 @@
                     </li>
                     @for (int i = 1; i <= @Model.PagesCount; i++)
                     {
-                        var active = i == Model.CurrentPage ? "active text-success" : string.Empty;
-                        <li class="page-item">
-                            <a class="page-link @active"
+                        var active = i == Model.CurrentPage ? "active" : string.Empty;
+                        <li class="page-item @active">
+                            <a class="page-link"
                                asp-area="Administration"
-                               asp-controller="dashboard"
-                               asp-action="Index"
+                               asp-controller="Dashboard"
+                               asp-action="StudentsAll"
                                asp-route-page="@i"
                                asp-route-searchText="@Model.SearchString"
                                asp-route-searchCriteria="@Model.SearchType">
@@ -119,8 +119,8 @@
                     <li class="page-item @disableRightArrow">
                         <a class="page-link"
                            asp-area="Administration"
-                           asp-controller="dashboard"
-                           asp-action="Index"
+                           asp-controller="Dashboard"
+                           asp-action="StudentsAll"
                            asp-route-page="@Model.NextPage"
                            asp-route-searchText="@Model.SearchString"
                            asp-route-searchCriteria="@Model.SearchType">
