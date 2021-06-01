@@ -40,7 +40,7 @@
                     var count = 0;
                     @foreach (var student in Model.Students)
                     {
-                        var targetId = "Student" + count++.ToString();
+                        var targetId = "student" + count++.ToString();
                         var target = "#" + targetId;
                         <tr class="table-danger">
                             <th scope="row" class="pt-4">@student.FullName</th>

@@ -24,8 +24,4 @@
     <ProjectReference Include="..\..\Services\Quizizz.Services.Mapping\Quizizz.Services.Mapping.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Groups\" />
-  </ItemGroup>
-
 </Project>

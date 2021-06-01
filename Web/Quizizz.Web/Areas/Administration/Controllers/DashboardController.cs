@@ -8,9 +8,11 @@
     using Quizizz.Common;
     using Quizizz.Data.Models;
     using Quizizz.Services.Data;
+    using Quizizz.Services.Groups;
     using Quizizz.Services.Quizzes;
     using Quizizz.Services.Users;
     using Quizizz.Web.ViewModels.Administration.Dashboard;
+    using Quizizz.Web.ViewModels.Groups;
     using Quizizz.Web.ViewModels.Quizzes;
     using Quizizz.Web.ViewModels.Students;
     using Quizizz.Web.ViewModels.UsersInRole;
@@ -20,17 +22,20 @@
         private const int PerPageDefaultValue = 5;
         private readonly RoleManager<ApplicationRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IGroupsService groupsService;
         private readonly IQuizzesService quizzesService;
         private readonly IUsersService userService;
 
         public DashboardController(
             RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager,
+            IGroupsService groupsService,
             IQuizzesService quizzesService,
             IUsersService userService)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
+            this.groupsService = groupsService;
             this.quizzesService = quizzesService;
             this.userService = userService;
         }
@@ -75,6 +80,28 @@
 
             model.NewUser.IsNotAdded = invalidEmail != null ? true : false;
             model.NewUser.Email = invalidEmail ?? null;
+
+            return this.View(model);
+        }
+
+        public async Task<IActionResult> GroupsAll(string searchText, string searchCriteria, int page = 1, int countPerPage = PerPageDefaultValue)
+        {
+            var model = new GroupsListAllViewModel
+            {
+                CurrentPage = page,
+                PagesCount = 0,
+                SearchType = searchCriteria,
+                SearchString = searchText,
+            };
+
+            var allGroupsCount = await this.groupsService.GetAllGroupsCountAsync(null, searchCriteria, searchText);
+            if (allGroupsCount > 0)
+            {
+                var groups = await this.groupsService.GetAllPerPageAsync<GroupsListViewModel>(page, countPerPage, null, searchCriteria, searchText);
+
+                model.Groups = groups;
+                model.PagesCount = (int)Math.Ceiling(allGroupsCount / (decimal)countPerPage);
+            }
 
             return this.View(model);
         }

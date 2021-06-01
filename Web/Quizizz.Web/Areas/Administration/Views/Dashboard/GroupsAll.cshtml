@@ -1,17 +1,15 @@
-﻿@model QuizzesAllListingViewModel
+﻿@model GroupsListAllViewModel
 @{
-    this.ViewData["Title"] = "Quizzes";
+    this.ViewData["Title"] = "Groups";
 }
 
 <div class="row">
     <div class="mt-2 mb-5 col-md-9">
         <div class="component">
-            <form method="get" class="form-inline mb-4" asp-controller="Dashboard" asp-action="QuizzesAll">
+            <form method="get" class="form-inline mb-4" asp-controller="Dashboard" asp-action="GroupsAll">
                 SearchBy:
                 <select id="select" class="btn btn-light mt-0 mt-md-3 mt-lg-0 ml-2 mr-3" name="searchCriteria">
                     <option value="Name" selected="@(Model.SearchType == "Name")">name</option>
-                    <option value="Assigned" selected="@(Model.SearchType == "Assigned")">assigned</option>
-                    <option value="Unassigned" selected="@(Model.SearchType == "Unassigned")">unassigned</option>
                 </select>
                 <div class="form-group flex-grow-1">
                     <label class="sr-only" for="email4">Email</label>
@@ -29,33 +27,33 @@
                 <tr class="table-active bg-white">
                     <th scope="col">Name</th>
                     <th scope="col">Created On</th>
-                    <th scope="col">Questions</th>
-                    <th scope="col">Is Assigned</th>
+                    <th scope="col">Students</th>
+                    <th scope="col">Events</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @if (Model.Quizzes.Any())
+                @if (Model.Groups.Any())
                 {
                     var count = 0;
-                    @foreach (var quiz in Model.Quizzes)
+                    @foreach (var group in Model.Groups)
                     {
-                        var targetId = "quiz" + count++.ToString();
+                        var targetId = "Group" + count++.ToString();
                         var target = "#" + targetId;
                         <tr class="table-warning">
-                            <th scope="row" class="pt-4">@quiz.Name</th>
-                            <td class="pt-4">@quiz.CreatedOnDate</td>
-                            <td class="pt-4">@quiz.QuestionsCount</td>
-                            <td style="color: @quiz.Color"class="pt-4"><i class="fas fa-circle"></i></td>
+                            <th scope="row" class="pt-4">@group.Name</th>
+                            <td class="pt-4">@group.CreatedOnDate</td>
+                            <td class="pt-4">@group.StudentsCount</td>
+                            <td class="pt-4">@group.EventsCount</td>
                             <td>
                                 <form method="post" class="component navbar-expand-lg text-right">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item m-1">
                                             <a class="nav-link btn btn-white"
                                                asp-
-                                               asp-controller="Quizzes"
-                                               asp-action="Display"
-                                               asp-route-id="@quiz.Id">
+                                               asp-controller="Groups"
+                                               asp-action="Edit"
+                                               asp-route-id="@group.Id">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                         </li>
@@ -76,15 +74,15 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body text-left">
-                                                            Are you Sure Want to Delete this student?
+                                                            Are you Sure Want to Delete this Group?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
                                                             <a class="btn btn-danger"
                                                                asp-area="Administration"
-                                                               asp-controller="Quizzes"
-                                                               asp-action="DeleteQuiz"
-                                                               asp-route-Id="@quiz.Id">
+                                                               asp-controller="Groups"
+                                                               asp-action="Delete"
+                                                               asp-route-Id="@group.Id">
                                                                 Delete
                                                             </a>
                                                         </div>
@@ -111,7 +109,7 @@
                         <a class="page-link"
                            asp-area="Administration"
                            asp-controller="Dashboard"
-                           asp-action="QuizzesAll"
+                           asp-action="GroupsAll"
                            asp-route-page="@Model.PreviousPage"
                            asp-route-searchText="@Model.SearchString"
                            asp-route-searchCriteria="@Model.SearchType">
@@ -125,7 +123,7 @@
                             <a class="page-link"
                                asp-area="Administration"
                                asp-controller="Dashboard"
-                               asp-action="QuizzesAll"
+                               asp-action="GroupsAll"
                                asp-route-page="@i"
                                asp-route-searchText="@Model.SearchString"
                                asp-route-searchCriteria="@Model.SearchType">
@@ -137,7 +135,7 @@
                         <a class="page-link"
                            asp-area="Administration"
                            asp-controller="Dashboard"
-                           asp-action="QuizzesAll"
+                           asp-action="GroupsAll"
                            asp-route-page="@Model.NextPage"
                            asp-route-searchText="@Model.SearchString"
                            asp-route-searchCriteria="@Model.SearchType">
