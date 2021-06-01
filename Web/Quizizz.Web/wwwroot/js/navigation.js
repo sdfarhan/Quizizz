@@ -4,7 +4,7 @@
         GROUPS: "GroupsAll",
         RESULTS: "ResultsAll",
         QUIZZES: "QuizzesAll",
-        Events: "EventsAll",
+        EVENTS: "EventsAll",
         MAIN: "Dashboard"
     }
 

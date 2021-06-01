@@ -2,6 +2,8 @@
 {
     using System.Reflection;
 
+    using Hangfire;
+    using Hangfire.SqlServer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -18,11 +20,13 @@
     using Quizizz.Data.Repositories;
     using Quizizz.Data.Seeding;
     using Quizizz.Services.Data;
+    using Quizizz.Services.Events;
     using Quizizz.Services.EventsGroups;
     using Quizizz.Services.Groups;
     using Quizizz.Services.Mapping;
     using Quizizz.Services.Messaging;
     using Quizizz.Services.Quizzes;
+    using Quizizz.Services.ScheduledJobsService;
     using Quizizz.Services.StudentsGroups;
     using Quizizz.Services.Tools.Expressions;
     using Quizizz.Services.Users;
@@ -43,6 +47,14 @@
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddHangfire(
+                options => options.UseSqlServerStorage(this.configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
+                {
+                    SchemaName = "hangfire",
+                }));
+
+            services.AddHangfireServer();
+
             services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
                 .AddRoles<ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -62,6 +74,11 @@
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            services.AddSignalR(options =>
+            {
+                options.EnableDetailedErrors = true;
+            });
+
             services.AddSingleton(this.configuration);
 
             // Data repositories
@@ -73,8 +90,10 @@
             services.AddTransient<IEmailSender>(x => new SendGridEmailSender(new LoggerFactory(), this.configuration["Sendgrid"]));
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IExpressionBuilder, ExpressionBuilder>();
+            services.AddTransient<IEventsService, EventsService>();
             services.AddTransient<IEventsGroupsService, EventsGroupsService>();
             services.AddTransient<IGroupsService, GroupsService>();
+            services.AddTransient<IScheduledJobsService, ScheduledJobsService>();
             services.AddTransient<IStudentsGroupsService, StudentsGroupsService>();
             services.AddTransient<IQuizzesService, QuizzesService>();
             services.AddTransient<IUsersService, UsersService>();
