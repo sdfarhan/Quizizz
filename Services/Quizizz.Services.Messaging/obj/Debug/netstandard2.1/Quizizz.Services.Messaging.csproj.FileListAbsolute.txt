@@ -6,3 +6,4 @@ F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\
 F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.csproj.CoreCompileInputs.cache
 F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.dll
 F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Messaging\obj\Debug\netstandard2.1\Quizizz.Services.Messaging.csprojAssemblyReference.cache

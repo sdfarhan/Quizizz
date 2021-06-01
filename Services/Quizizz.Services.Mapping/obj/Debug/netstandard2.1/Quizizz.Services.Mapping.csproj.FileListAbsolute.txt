@@ -6,3 +6,4 @@ F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Qu
 F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.csproj.CoreCompileInputs.cache
 F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.dll
 F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.pdb
+F:\myrepos\Quizizz\Services\Quizizz.Services.Mapping\obj\Debug\netstandard2.1\Quizizz.Services.Mapping.csprojAssemblyReference.cache

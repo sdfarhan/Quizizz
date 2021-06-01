@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public static class Modelvalidations
+    public static class ModelValidations
     {
         public static class Answer
         {

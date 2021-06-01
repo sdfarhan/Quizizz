@@ -8,8 +8,10 @@
     using Quizizz.Common;
     using Quizizz.Data.Models;
     using Quizizz.Services.Data;
+    using Quizizz.Services.Quizzes;
     using Quizizz.Services.Users;
     using Quizizz.Web.ViewModels.Administration.Dashboard;
+    using Quizizz.Web.ViewModels.Quizzes;
     using Quizizz.Web.ViewModels.Students;
     using Quizizz.Web.ViewModels.UsersInRole;
 
@@ -18,15 +20,18 @@
         private const int PerPageDefaultValue = 5;
         private readonly RoleManager<ApplicationRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IQuizzesService quizzesService;
         private readonly IUsersService userService;
 
         public DashboardController(
             RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager,
+            IQuizzesService quizzesService,
             IUsersService userService)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
+            this.quizzesService = quizzesService;
             this.userService = userService;
         }
 
@@ -72,6 +77,32 @@
             model.NewUser.Email = invalidEmail ?? null;
 
             return this.View(model);
+        }
+
+        public async Task<IActionResult> QuizzesAll(string searchText, string searchCriteria, int page = 1, int countPerPage = PerPageDefaultValue)
+        {
+            var model = new QuizzesAllListingViewModel
+            {
+                CurrentPage = page,
+                PagesCount = 0,
+                SearchType = searchCriteria,
+                SearchString = searchText,
+            };
+
+            int quizzesCount = await this.quizzesService.GetAllQuizzesCountAsync(null, searchCriteria, searchText, null);
+
+            if (quizzesCount > 0)
+            {
+                model.Quizzes = await this.quizzesService.GetAllPerPageAsync<QuizListViewModel>(page, countPerPage, null, searchCriteria, searchText, null);
+                model.PagesCount = (int)Math.Ceiling(quizzesCount / (decimal)countPerPage);
+            }
+
+            return this.View(model);
+        }
+
+        public async Task<IActionResult> ResultsAll(string searchText, string searchCriteria, int page = 1, int countPerPage = PerPageDefaultValue)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IActionResult> StudentsAll(string searchText, string searchCriteria, int page = 1, int countPerPage = PerPageDefaultValue)

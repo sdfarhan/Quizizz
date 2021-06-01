@@ -20,6 +20,7 @@
     using Quizizz.Services.Data;
     using Quizizz.Services.Mapping;
     using Quizizz.Services.Messaging;
+    using Quizizz.Services.Quizzes;
     using Quizizz.Services.Tools.Expressions;
     using Quizizz.Services.Users;
     using Quizizz.Web.ViewModels;
@@ -69,6 +70,7 @@
             services.AddTransient<IEmailSender>(x => new SendGridEmailSender(new LoggerFactory(), this.configuration["Sendgrid"]));
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IExpressionBuilder, ExpressionBuilder>();
+            services.AddTransient<IQuizzesService, QuizzesService>();
             services.AddTransient<IUsersService, UsersService>();
         }
 

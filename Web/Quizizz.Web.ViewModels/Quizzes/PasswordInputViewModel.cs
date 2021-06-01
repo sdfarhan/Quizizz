@@ -11,9 +11,9 @@
     {
         [Required]
         [StringLength(
-            Modelvalidations.Password.MaxLength,
-            ErrorMessage = Modelvalidations.Error.RangeMessage,
-            MinimumLength = Modelvalidations.Password.MinLength)]
+            ModelValidations.Password.MaxLength,
+            ErrorMessage = ModelValidations.Error.RangeMessage,
+            MinimumLength = ModelValidations.Password.MinLength)]
         public string Password { get; set; }
 
         public string Error { get; set; }

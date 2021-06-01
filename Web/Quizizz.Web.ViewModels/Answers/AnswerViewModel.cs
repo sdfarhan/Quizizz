@@ -16,9 +16,9 @@
 
         [Required]
         [StringLength(
-            Modelvalidations.Answer.TextMaxLength,
-            MinimumLength = Modelvalidations.Answer.TextMinLength,
-            ErrorMessage = Modelvalidations.Error.RangeMessage)]
+            ModelValidations.Answer.TextMaxLength,
+            MinimumLength = ModelValidations.Answer.TextMinLength,
+            ErrorMessage = ModelValidations.Error.RangeMessage)]
         public string Text { get; set; }
 
         public string SanitizedText => new HtmlSanitizer().Sanitize(this.Text);
