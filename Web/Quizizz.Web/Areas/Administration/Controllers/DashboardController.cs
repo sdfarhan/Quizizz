@@ -83,7 +83,7 @@
                 model.PagesCount = (int)Math.Ceiling(userInRoleCount / (decimal)countPerPage);
             }
 
-            model.NewUser.IsNotAdded = invalidEmail != null ? true : false;
+            model.NewUser.IsNotAdded = invalidEmail != null;
             model.NewUser.Email = invalidEmail ?? null;
 
             return this.View(model);
@@ -109,7 +109,6 @@
             }
 
             return this.View(model);
-
         }
 
         public async Task<IActionResult> GroupsAll(string searchText, string searchCriteria, int page = 1, int countPerPage = PerPageDefaultValue)
