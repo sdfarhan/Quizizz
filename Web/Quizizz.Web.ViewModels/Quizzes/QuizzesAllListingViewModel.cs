@@ -4,12 +4,19 @@
     using System.Collections.Generic;
     using System.Text;
 
+    using Quizizz.Web.ViewModels.Categories;
+
     public class QuizzesAllListingViewModel
     {
         public QuizzesAllListingViewModel()
         {
+            this.Categories = new List<CategorySimpleViewModel>();
             this.Quizzes = new List<QuizListViewModel>();
         }
+
+        public IEnumerable<CategorySimpleViewModel> Categories { get; set; }
+
+        public CategorySimpleViewModel CurrentCategory { get; set; }
 
         public IEnumerable<QuizListViewModel> Quizzes { get; set; }
 
