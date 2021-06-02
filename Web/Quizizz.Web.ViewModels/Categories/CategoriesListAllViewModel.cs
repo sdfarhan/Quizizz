@@ -1,4 +1,4 @@
-﻿namespace Quizizz.Web.ViewModels.Groups
+﻿namespace Quizizz.Web.ViewModels.Categories
 {
     using System;
     using System.Collections.Generic;
@@ -8,10 +8,10 @@
     {
         public CategoriesListAllViewModel()
         {
-            this.Groups = new List<GroupsListViewModel>();
+            this.Categories = new List<CategoriesListViewModel>();
         }
 
-        public IEnumerable<GroupsListViewModel> Groups { get; set; }
+        public IEnumerable<CategoriesListViewModel> Categories { get; set; }
 
         public int PagesCount { get; set; }
 
