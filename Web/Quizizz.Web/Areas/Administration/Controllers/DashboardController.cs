@@ -125,7 +125,7 @@
             var allGroupsCount = await this.groupsService.GetAllGroupsCountAsync(null, searchCriteria, searchText);
             if (allGroupsCount > 0)
             {
-                var groups = await this.groupsService.GetAllPerPageAsync<GroupsListViewModel>(page, countPerPage, null, searchCriteria, searchText);
+                var groups = await this.groupsService.GetAllPerPageAsync<CategoriesListViewModel>(page, countPerPage, null, searchCriteria, searchText);
 
                 model.Groups = groups;
                 model.PagesCount = (int)Math.Ceiling(allGroupsCount / (decimal)countPerPage);

@@ -4,9 +4,9 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class CategoriesListAllViewModel
+    public class GroupsListAllViewModel
     {
-        public CategoriesListAllViewModel()
+        public GroupsListAllViewModel()
         {
             this.Groups = new List<GroupsListViewModel>();
         }
