@@ -532,3 +532,4 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\bin\Debug\net5.0\runtimes\win\lib\netstandard
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Students\AllStudentsAddedByTeacher.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Quizzes\AllQuizzesCreatedByTeacher.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Categories\AllCategoriesCreatedByTeacher.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Groups\AllGroupsCreatedByTeacher.cshtml.g.cs
