@@ -8,6 +8,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Quizizz.Common;
     using Quizizz.Data.Models;
     using Quizizz.Services.Users;
     using Quizizz.Web.ViewModels.Students;
@@ -59,6 +60,27 @@
             }
 
             return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AllStudentsAddedByTeacher(AllStudentsAddedByTeacherViewModel model)
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            var participantsIsAdded = await this.usersService.AddStudentAsync(model.NewStudent.Email, userId);
+
+            if (!participantsIsAdded)
+            {
+                return this.RedirectToAction("AllStudentsAddedByTeacher", new { invalidEmail = model.NewStudent.Email });
+            }
+
+            return this.RedirectToAction("AllStudentsAddedByTeacher");
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            await this.usersService.DeleteFromTeacherListAsync(id, userId);
+            return this.RedirectToAction("AllStudentsAddedByTeacher");
         }
     }
 }

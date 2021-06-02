@@ -69,7 +69,7 @@
                     .Where(x => x.Id == teacherId)
                     .FirstOrDefaultAsync();
 
-                studentToRemove.Teacher = null;
+                studentToRemove.TeacherId = null;
                 teacher.Students.Remove(studentToRemove);
 
                 this.userRepository.Update(studentToRemove);
