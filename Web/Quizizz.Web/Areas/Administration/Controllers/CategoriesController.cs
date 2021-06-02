@@ -4,11 +4,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Quizizz.Data.Models;
     using Quizizz.Services.Categories;
-    using Quizizz.Web.ViewModels.Groups;
+    using Quizizz.Web.ViewModels.Categories;
 
     public class CategoriesController : AdministrationController
     {
@@ -40,10 +41,11 @@
             if (allCategoriesCreatedByTeacherCount > 0)
             {
                 var categories = await this.categoriesService.GetAllPerPage<CategoriesListViewModel>(page, countPerPage, userId, searchCriteria, searchText);
-
+                model.Categories = categories;
+                model.PagesCount = (int)Math.Ceiling(allCategoriesCreatedByTeacherCount / (decimal)countPerPage);
             }
 
-            return View();
+            return this.View(model);
         }
     }
 }
