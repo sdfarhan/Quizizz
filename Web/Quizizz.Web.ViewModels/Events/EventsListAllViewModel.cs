@@ -8,7 +8,7 @@
     {
         public EventsListAllViewModel()
         {
-            this.Events = new List<T>();
+            this.Events = new HashSet<T>();
         }
 
         public IEnumerable<T> Events { get; set; }
