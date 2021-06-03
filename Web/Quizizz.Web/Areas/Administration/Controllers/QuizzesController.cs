@@ -4,13 +4,14 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Quizizz.Data.Models;
     using Quizizz.Services.Categories;
     using Quizizz.Services.Quizzes;
     using Quizizz.Services.Users;
+    using Quizizz.Web.Common;
     using Quizizz.Web.ViewModels.Categories;
     using Quizizz.Web.ViewModels.Quizzes;
 
@@ -29,6 +30,29 @@
             this.userManager = userManager;
             this.categoriesService = categoriesService;
             this.quizzesService = quizzesService;
+        }
+
+        public IActionResult DetailsInput()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DetailsInput(InputQuizViewModel model)
+        {
+            var quizWithSamePasswordId = await this.quizzesService.GetQuizIdByPasswordAsync(model.Password);
+            if (quizWithSamePasswordId != null)
+            {
+                return this.View(model);
+            }
+
+            var userId = this.userManager.GetUserId(this.User);
+            model.CreatorId = userId;
+            model.PasswordIsValid = true;
+            // var quizId = await this.quizzesService.CreateQuizAsync(model.Name, model.Description, model.Timer, model.CreatorId, model.Password);
+            var quizId = "123456";
+            this.HttpContext.Session.SetString(Constants.QuizSessionId, quizId);
+            return this.RedirectToAction("QuestionsInput", "Questions");
         }
 
         public async Task<IActionResult> AllQuizzesCreatedByTeacher(string categoryId, string searchCriteria, string searchText, int page = 1, int countPerPage = DefaultCountPerPage)
@@ -55,5 +79,7 @@
 
             return this.View(model);
         }
+
+
     }
 }

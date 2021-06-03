@@ -24,5 +24,19 @@
 
             public const int MinLength = 8;
         }
+
+        public static class Questions
+        {
+            public const int TextMaxLength = 1000;
+
+            public const int TextMinLength = 3;
+        }
+
+        public static class Quizzes
+        {
+            public const int NameMaxLength = 1000;
+
+            public const int NameMinLength = 3;
+        }
     }
 }

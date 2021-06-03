@@ -1,5 +1,6 @@
 ﻿namespace Quizizz.Web
 {
+    using System;
     using System.Reflection;
 
     using Hangfire;
@@ -13,6 +14,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
+    using Quizizz.Common;
     using Quizizz.Data;
     using Quizizz.Data.Common;
     using Quizizz.Data.Common.Repositories;
@@ -67,20 +69,30 @@
                         options.MinimumSameSitePolicy = SameSiteMode.None;
                     });
 
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+
             services.AddControllersWithViews(
                 options =>
                     {
                         options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
                     }).AddRazorRuntimeCompilation();
-            services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddSingleton(this.configuration);
+
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.IdleTimeout = TimeSpan.FromDays(GlobalConstants.CookieTimeOut);
+                options.Cookie.IsEssential = true;
+            });
 
             services.AddSignalR(options =>
             {
                 options.EnableDetailedErrors = true;
             });
 
-            services.AddSingleton(this.configuration);
+            services.AddDistributedMemoryCache();
+
 
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
@@ -130,7 +142,7 @@
             app.UseCookiePolicy();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 

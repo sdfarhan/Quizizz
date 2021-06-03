@@ -12,6 +12,8 @@
 
         public const string AdminLayout = "_LayoutAdmin";
 
+        public const int CookieTimeOut = 1;
+
         public const string Empty = "empty";
 
         public const string PageToReturnTo = "Page";

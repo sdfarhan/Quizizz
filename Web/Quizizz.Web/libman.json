@@ -43,6 +43,11 @@
       "files": [
         "jquery.signalR.min.js"
       ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "tinymce@5.7.1",
+      "destination": "wwwroot/lib/tinymce/"
     }
   ]
 }

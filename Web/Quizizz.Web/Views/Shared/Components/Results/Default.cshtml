@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EventsSimpleViewModel>
+@{
+    ViewData["Title"] = "Default";
+}
+
+@if (Model.Any())
+{
+    var eventsIsActive = Model.First().Status == Quizizz.Data.Common.Enumerations.Status.Active;
+    var colorClass = eventsIsActive ? "success" : "danger";
+    var action = eventsIsActive ? "ActiveEventsAll" : "EndedEventsAll";
+    <table class="table table-hover col-12 mt-2">
+        <thead>
+            <tr class="table-active bg-white">
+                <th scope="col" class="p-2">Name</th>
+                <th scope="col" class="p-2"></th>
+                <th scope="col" class="p-2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var _event in Model.Take(3))
+            {
+                <tr class="table-@colorClass">
+                    <th scope="row" class="pt-3">@_event.Name</th>
+                    <th scope="row" class="pt-3 text-center"></th>
+                    <td class="text-right">
+                        <a type="submit" class="btn btn-outline-@colorClass py-1"
+                           asp-area="Administration"
+                           asp-action="EventResultsDetails"
+                           asp-controller="Results"
+                           asp-route-eventId="@_event.Id">
+                            View
+                        </a>
+                    </td>
+                </tr>  
+            }
+        </tbody>
+    </table>
+    <div class="card-footer text-left">
+        <a class="btn btn-outline-primary"
+           asp-area="Admninitration"
+           asp-controller="Events"
+           asp-action="@action">
+            See All
+        </a>
+    </div>
+}
+else
+{
+    <div class="card-footer">
+        <p class="ml-2 text-primary">There are no active events at the moment</p>
+    </div>
+}

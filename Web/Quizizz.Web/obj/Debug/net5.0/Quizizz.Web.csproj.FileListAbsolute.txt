@@ -534,3 +534,6 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\V
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Categories\AllCategoriesCreatedByTeacher.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Groups\AllGroupsCreatedByTeacher.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Events\AllEventsCreatedByTeacher.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Results\Index.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\Components\Results\Default.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Quizzes\DetailsInput.cshtml.g.cs

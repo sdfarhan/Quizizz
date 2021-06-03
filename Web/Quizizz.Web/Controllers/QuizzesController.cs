@@ -37,13 +37,6 @@
             var user = await this.userManager.GetUserAsync(this.User);
             var roles = await this.userManager.GetRolesAsync(user);
 
-            this.ViewData["Area"] = roles.Count > 0 ? Constants.AdminArea : string.Empty;
-            var quizModel = await this.quizzesService.GetQuizByIdAsync<AttemptedQuizViewModel>(id);
-
-            foreach (var question in quizModel.Questions)
-            {
-            }
-
             return this.NoContent();
         }
     }

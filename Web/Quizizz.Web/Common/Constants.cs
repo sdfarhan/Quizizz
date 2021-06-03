@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public class Constants
+    public static class Constants
     {
-        public static string AdminArea { get; set; }
+        public const string QuizSessionId = "newQuizId";
     }
 }
