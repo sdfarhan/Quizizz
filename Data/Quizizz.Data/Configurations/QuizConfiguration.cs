@@ -21,7 +21,7 @@
 
             quiz.HasOne(q => q.Password)
                 .WithOne(p => p.Quiz)
-                .HasForeignKey<Password>(p => p.QuizId);
+                .HasForeignKey<Quiz>(q => q.PasswordId);
 
             quiz.HasOne(q => q.Event)
                 .WithOne(e => e.Quiz)

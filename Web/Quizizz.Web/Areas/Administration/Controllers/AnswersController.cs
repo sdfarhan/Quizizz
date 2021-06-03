@@ -19,5 +19,11 @@
         {
             this.answerService = answersService;
         }
+
+        [HttpGet]
+        public IActionResult AnswerInput()
+        {
+            return this.View();
+        }
     }
 }

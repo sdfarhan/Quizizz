@@ -17,7 +17,7 @@
         {
             password.HasOne(p => p.Quiz)
                 .WithOne(q => q.Password)
-                .HasForeignKey<Quiz>(p => p.PasswordId);
+                .HasForeignKey<Password>(p => p.QuizId);
 
             password.Property(p => p.Content)
                 .HasMaxLength(DataValidation.Password.PasswordMaxLength);

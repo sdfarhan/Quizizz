@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Quizizz.Data;
 
 namespace Quizizz.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210603151538_fix-conflict")]
+    partial class fixconflict
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -464,13 +466,17 @@ namespace Quizizz.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("QuizId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Content")
                         .IsUnique()
                         .HasFilter("[Content] IS NOT NULL");
+
+                    b.HasIndex("QuizId")
+                        .IsUnique()
+                        .HasFilter("[QuizId] IS NOT NULL");
 
                     b.ToTable("Passwords");
                 });
@@ -559,10 +565,6 @@ namespace Quizizz.Data.Migrations
                     b.HasIndex("CreatorId");
 
                     b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PasswordId")
-                        .IsUnique()
-                        .HasFilter("[PasswordId] IS NOT NULL");
 
                     b.ToTable("Quizzes");
                 });
@@ -819,6 +821,15 @@ namespace Quizizz.Data.Migrations
                     b.Navigation("Creator");
                 });
 
+            modelBuilder.Entity("Quizizz.Data.Models.Password", b =>
+                {
+                    b.HasOne("Quizizz.Data.Models.Quiz", "Quiz")
+                        .WithOne("Password")
+                        .HasForeignKey("Quizizz.Data.Models.Password", "QuizId");
+
+                    b.Navigation("Quiz");
+                });
+
             modelBuilder.Entity("Quizizz.Data.Models.Question", b =>
                 {
                     b.HasOne("Quizizz.Data.Models.Quiz", "Quiz")
@@ -838,15 +849,9 @@ namespace Quizizz.Data.Migrations
                         .WithMany("CreatedQuizzes")
                         .HasForeignKey("CreatorId");
 
-                    b.HasOne("Quizizz.Data.Models.Password", "Password")
-                        .WithOne("Quiz")
-                        .HasForeignKey("Quizizz.Data.Models.Quiz", "PasswordId");
-
                     b.Navigation("Category");
 
                     b.Navigation("Creator");
-
-                    b.Navigation("Password");
                 });
 
             modelBuilder.Entity("Quizizz.Data.Models.Result", b =>
@@ -934,11 +939,6 @@ namespace Quizizz.Data.Migrations
                     b.Navigation("StudentsGroups");
                 });
 
-            modelBuilder.Entity("Quizizz.Data.Models.Password", b =>
-                {
-                    b.Navigation("Quiz");
-                });
-
             modelBuilder.Entity("Quizizz.Data.Models.Question", b =>
                 {
                     b.Navigation("Answers");
@@ -947,6 +947,8 @@ namespace Quizizz.Data.Migrations
             modelBuilder.Entity("Quizizz.Data.Models.Quiz", b =>
                 {
                     b.Navigation("Event");
+
+                    b.Navigation("Password");
 
                     b.Navigation("Questions");
                 });

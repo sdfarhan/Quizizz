@@ -21,6 +21,7 @@
     using Quizizz.Data.Models;
     using Quizizz.Data.Repositories;
     using Quizizz.Data.Seeding;
+    using Quizizz.Services.Answers;
     using Quizizz.Services.Categories;
     using Quizizz.Services.Data;
     using Quizizz.Services.Events;
@@ -28,6 +29,7 @@
     using Quizizz.Services.Groups;
     using Quizizz.Services.Mapping;
     using Quizizz.Services.Messaging;
+    using Quizizz.Services.Questions;
     using Quizizz.Services.Quizzes;
     using Quizizz.Services.ScheduledJobsService;
     using Quizizz.Services.StudentsGroups;
@@ -103,13 +105,15 @@
             services.AddTransient<IEmailSender>(x => new SendGridEmailSender(new LoggerFactory(), this.configuration["Sendgrid"]));
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IExpressionBuilder, ExpressionBuilder>();
+            services.AddTransient<IAnswersService, AnswersService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IEventsService, EventsService>();
             services.AddTransient<IEventsGroupsService, EventsGroupsService>();
             services.AddTransient<IGroupsService, GroupsService>();
+            services.AddTransient<IQuestionsService, QuestionsService>();
+            services.AddTransient<IQuizzesService, QuizzesService>();
             services.AddTransient<IScheduledJobsService, ScheduledJobsService>();
             services.AddTransient<IStudentsGroupsService, StudentsGroupsService>();
-            services.AddTransient<IQuizzesService, QuizzesService>();
             services.AddTransient<IUsersService, UsersService>();
         }
 

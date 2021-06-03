@@ -8,5 +8,7 @@
     public static class Constants
     {
         public const string QuizSessionId = "newQuizId";
+
+        public const string CurrentQuestionId = "currentQuestionId";
     }
 }

@@ -1,26 +1,20 @@
-﻿@model AnswerViewModel
+﻿@model QuestionInputModel
 @{
-    ViewData["Title"] = "Answer Input";
+    ViewData["Title"] = "QuestionsInput";
 }
 
 <div class="col-12 col-md-8 offset-md-2 row">
-    <form id="form" method="post" class="col-12" asp-action="AddNewAnswer" asp-controller="Answers" asp-area="Administration">
+    <form id="form" method="post" class="col-12" asp-action="AddNewQuestion" asp-controller="Questions" asp-area="Administration">
         <div class="component">
             <div class="card mb-3">
                 <div class="card-header text-warning" style="font-size: xx-large">
                     <i class="fas fa-folder-plus"></i>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">Add New Answer</h4>
+                    <h4 class="card-title">Add New Question</h4>
                     <p class="card-text" style="display: block">
                         <span class="text-primary">*</span>
                         You can always edit it later.
-                    </p>
-                    <p class="card-text" style="display: block;">
-                        <span class="text-primary mr-1">
-                            <input type="checkbox" value="true" asp-for="IsRightAnswer">
-                        </span>
-                        Check the box if the answer is right.
                     </p>
                 </div>
                 <div class="card-footer pb-5">
@@ -29,7 +23,7 @@
                     </div>
                     <span asp-validation-for="@Model.Text" class="text-danger"></span>
                     <div class="row mx-1 text-white">
-                        <button id="submitButton" type="submit" class="btn btn-primary col-md-5 mt-5">Add Answer</button>
+                        <button id="submitButton" type="submit" class="btn btn-primary col-md-5 mt-5">Add Question</button>
                         <div class="row mx-1"></div>
                         <a class="btn btn-primary col-md-5 mt-5"
                            asp-action="Display"
@@ -43,14 +37,9 @@
         </div>
     </form>
 </div>
-<div class="text-center row">
-    <a class="btn btn-primary col-md-4 mt-2 offset-2"
-       asp-action="QuestionsInput"
-       asp-controller="Questions"
-       asp-area="Administration">
-        Create New Question
-    </a>
-    <a class="btn btn-primary col-md-4 mt-2 ml-3"
+<div class="text-center">
+    <a id="viewQuiz"
+       class="btn btn-primary col-md-5 mt-2"
        asp-action="Display"
        asp-controller="Quizzes"
        asp-area="Administration">
