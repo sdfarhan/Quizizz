@@ -10,5 +10,7 @@
         public const string QuizSessionId = "newQuizId";
 
         public const string CurrentQuestionId = "currentQuestionId";
+
+        public const string PageToReturnTo = "Page";
     }
 }
