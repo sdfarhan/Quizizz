@@ -9,6 +9,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Quizizz.Common;
     using Quizizz.Services.Answers;
+    using Quizizz.Web.Common;
     using Quizizz.Web.ViewModels.Answers;
 
     public class AnswersController : AdministrationController
@@ -24,6 +25,14 @@
         public IActionResult AnswerInput()
         {
             return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewAnswer(AnswerViewModel model)
+        {
+            var questionId = this.HttpContext.Session.GetString(Constants.CurrentQuestionId);
+            await this.answerService.CreateAnswerAsync(model.SanitizedText, model.IsRightAnswer, questionId);
+            return this.RedirectToAction("AnswerInput");
         }
     }
 }
