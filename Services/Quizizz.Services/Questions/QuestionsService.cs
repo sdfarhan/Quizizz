@@ -26,28 +26,19 @@
 
         public async Task<string> CreateQuestionAsync(string quizId, string questionText)
         {
-            var quizzes = await this.quizRepository.AllAsNoTracking().ToListAsync();
+            var quiz = await this.quizRepository.AllAsNoTracking().Include("Questions").FirstOrDefaultAsync(x => x.Id == quizId);
 
-            foreach (var quiz in quizzes)
+            var newQuestion = new Question
             {
-                foreach (var question in quiz.Questions)
-                {
-                    Console.WriteLine(question.ToString());
-                }
-            }
+                Number = quiz.Questions.Count() + 1,
+                QuizId = quizId,
+                Text = questionText,
+            };
 
-            return null;
-            //var newQuestion = new Question
-            //{
-            //    Number = quiz.Questions.Count() + 1,
-            //    QuizId = quizId,
-            //    Text = questionText,
-            //};
+            await this.questionRepository.AddAsync(newQuestion);
+            await this.questionRepository.SaveChangesAsync();
 
-            //await this.questionRepository.AddAsync(newQuestion);
-            //await this.questionRepository.SaveChangesAsync();
-
-            //return newQuestion.Id;
+            return newQuestion.Id;
         }
 
         public async Task DeleteQuestionByIdAsync(string id)

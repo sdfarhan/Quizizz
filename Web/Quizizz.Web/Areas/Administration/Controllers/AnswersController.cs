@@ -34,5 +34,16 @@
             await this.answerService.CreateAnswerAsync(model.SanitizedText, model.IsRightAnswer, questionId);
             return this.RedirectToAction("AnswerInput");
         }
+
+        [HttpGet]
+        public IActionResult AppendAnswerInput(string id)
+        {
+            var model = new AnswerViewModel
+            {
+                QuestionId = id,
+            };
+
+            return this.View(model);
+        }
     }
 }

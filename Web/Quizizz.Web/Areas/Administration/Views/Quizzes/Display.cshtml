@@ -120,14 +120,15 @@
                     var active = i == Model.CurrentPage ? "active" : string.Empty;
                     <li class="page-item @active">
                         <a class="page-link"
-                            asp-area="Administration"
-                            asp-controller="Quizzes"
-                            asp-action="Display"
-                            asp-route-id="@Model.Details.Id"
-                            asp-route-page="@i">
+                           asp-area="Administration"
+                           asp-controller="Quizzes"
+                           asp-action="Display"
+                           asp-route-id="@Model.Details.Id"
+                           asp-route-page="@i">
                             @i
                         </a>
-                    </li>                
+                    </li>
+
                 }
                 <li class="page-item @disabledRightArrow">
                     <a class="page-link"
@@ -147,4 +148,36 @@
 @if (Model.Quetion != null)
 {
     @await Html.PartialAsync("_QuestionDetailsPartial", Model.Quetion)
+}
+<a class="btn btn-outline-primary col-md-4 offset-md-4 mt-2 d-inline-block"
+   asp-action="QuestionInput"
+   asp-controller="Questions"
+   asp-route-id="@Model.Details.Id">
+    Add Question
+</a>
+<a class="btn btn-outline-primary offset-md-4 col-md-4 mt-2 d-inline-block" 
+   target="_blank" 
+   asp-action="PDFExport" 
+   asp-controller="Quizzes" 
+   asp-route-id="@Model.Details.Id">
+    Export To PDF
+</a>
+@if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) && this.ViewData[GlobalConstants.DashboardRequest] != null)
+{
+@section InnerNav
+    {
+    <partial name="_DashboardNavBarPartial" />
+}}
+@section Scripts
+{
+    <script src="~/js/navigation.js" asp-append-version="true"></script>
+    <script>
+        $(function () {
+            if (@Model.CurrentPage > 1) {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#scrollHere").offset().top
+                }, 50);
+            }
+        });
+    </script>
 }

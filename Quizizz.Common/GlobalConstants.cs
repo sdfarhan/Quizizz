@@ -14,6 +14,8 @@
 
         public const int CookieTimeOut = 1;
 
+        public const string DashboardRequest = "DashboardRequest";
+        
         public const string Empty = "empty";
 
         public const string PageToReturnTo = "Page";
