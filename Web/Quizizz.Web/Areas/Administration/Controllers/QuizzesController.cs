@@ -39,6 +39,32 @@
             this.quizzesService = quizzesService;
         }
 
+        public async Task<IActionResult> AllQuizzesCreatedByTeacher(string categoryId, string searchCriteria, string searchText, int page = 1, int countPerPage = DefaultCountPerPage)
+        {
+            var userId = this.userManager.GetUserId(this.User);
+
+            var model = new QuizzesAllListingViewModel
+            {
+                Categories = await this.categoriesService.GetByCreatorIdAsync<CategorySimpleViewModel>(userId),
+                CurrentCategory = categoryId == null ? null : await this.categoriesService.GetByIdAsync<CategorySimpleViewModel>(categoryId),
+                CurrentPage = page,
+                PagesCount = 0,
+                SearchType = searchCriteria,
+                SearchString = searchText,
+            };
+
+            var allQuizzesCreatedByTeacherCount = await this.quizzesService.GetAllQuizzesCountAsync(userId, searchCriteria, searchText, categoryId);
+            if (allQuizzesCreatedByTeacherCount > 0)
+            {
+                var quizzes = await this.quizzesService.GetAllPerPageAsync<QuizListViewModel>(page, countPerPage, userId, searchCriteria, searchText, categoryId);
+                model.Quizzes = quizzes;
+                model.PagesCount = (int)Math.Ceiling(allQuizzesCreatedByTeacherCount / (decimal)countPerPage);
+            }
+
+            return this.View(model);
+        }
+
+        [HttpGet]
         public IActionResult DetailsInput()
         {
             return this.View();
@@ -59,6 +85,12 @@
             var quizId = await this.quizzesService.CreateQuizAsync(model.Name, model.Description, model.Timer, model.CreatorId, model.Password);
             this.HttpContext.Session.SetString(Constants.QuizSessionId, quizId);
             return this.RedirectToAction("QuestionsInput", "Questions");
+        }
+
+        public async Task<IActionResult> DeleteQuiz(string id)
+        {
+            await this.quizzesService.DeleteByIdAsync(id);
+            return this.RedirectToAction(nameof(this.AllQuizzesCreatedByTeacher));
         }
 
         public async Task<IActionResult> Display(string id, int? page, int countPerPage = QuestionsPerPageDefaultValue)
@@ -95,35 +127,11 @@
             return this.View(model);
         }
 
-        public async Task<IActionResult> AllQuizzesCreatedByTeacher(string categoryId, string searchCriteria, string searchText, int page = 1, int countPerPage = DefaultCountPerPage)
+        public async Task<IActionResult> EditDetailsInput(string id)
         {
-            var userId = this.userManager.GetUserId(this.User);
-
-            var model = new QuizzesAllListingViewModel
-            {
-                Categories = await this.categoriesService.GetByCreatorIdAsync<CategorySimpleViewModel>(userId),
-                CurrentCategory = categoryId == null ? null : await this.categoriesService.GetByIdAsync<CategorySimpleViewModel>(categoryId),
-                CurrentPage = page,
-                PagesCount = 0,
-                SearchType = searchCriteria,
-                SearchString = searchText,
-            };
-
-            var allQuizzesCreatedByTeacherCount = await this.quizzesService.GetAllQuizzesCountAsync(userId, searchCriteria, searchText, categoryId);
-            if (allQuizzesCreatedByTeacherCount > 0)
-            {
-                var quizzes = await this.quizzesService.GetAllPerPageAsync<QuizListViewModel>(page, countPerPage, userId, searchCriteria, searchText, categoryId);
-                model.Quizzes = quizzes;
-                model.PagesCount = (int)Math.Ceiling(allQuizzesCreatedByTeacherCount / (decimal)countPerPage);
-            }
-
-            return this.View(model);
-        }
-
-        public async Task<IActionResult> DeleteQuiz(string id)
-        {
-            await this.quizzesService.DeleteByIdAsync(id);
-            return this.RedirectToAction(nameof(this.AllQuizzesCreatedByTeacher));
+            var editmodel = await this.quizzesService.GetQuizByIdAsync<EditDetailsViewModel>(id);
+            editmodel.PasswordIsValid = true;
+            return this.View(editmodel);
         }
     }
 }

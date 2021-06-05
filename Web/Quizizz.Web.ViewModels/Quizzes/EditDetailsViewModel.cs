@@ -8,16 +8,10 @@
     using AutoMapper;
     using Quizizz.Data.Models;
     using Quizizz.Services.Mapping;
-    using Quizizz.Web.ViewModels.Questions;
     using Quizizz.Web.ViewModels.Shared;
 
-    public class InputQuizViewModel : IMapFrom<Quiz>, IHaveCustomMappings
+    public class EditDetailsViewModel : IMapFrom<Quiz>, IHaveCustomMappings
     {
-        public InputQuizViewModel()
-        {
-            this.Questions = new List<QuestionInputViewModel>();
-        }
-
         public string Id { get; set; }
 
         [Required]
@@ -26,8 +20,6 @@
             MinimumLength = ModelValidations.Quizzes.NameMinLength,
             ErrorMessage = ModelValidations.Error.RangeMessage)]
         public string Name { get; set; }
-
-        public string CreatorId { get; set; }
 
         public string Description { get; set; }
 
@@ -38,17 +30,13 @@
             ErrorMessage = ModelValidations.Error.RangeMessage)]
         public string Password { get; set; }
 
-        public bool IsActive { get; set; }
-
         public int? Timer { get; set; }
 
         public bool PasswordIsValid { get; set; }
 
-        public IList<QuestionInputViewModel> Questions { get; set; }
-
         public void CreateMappings(IProfileExpression configuration)
         {
-            configuration.CreateMap<Quiz, InputQuizViewModel>()
+            configuration.CreateMap<Quiz, EditDetailsViewModel>()
                 .ForMember(
                 x => x.Password,
                 opt => opt.MapFrom(x => x.Password.Content));

@@ -1,32 +1,29 @@
-﻿@model InputQuizViewModel
+﻿@model EditDetailsViewModel
 @{
-    ViewData["Title"] = "index";
+    ViewData["Title"] = "EditDetailsInput";
 }
 
-@if (Model != null)
+@if (!Model.PasswordIsValid)
 {
-    @if (!Model.PasswordIsValid)
-    {
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                <span aria-hidden="true">x</span>
-            </button>
-            <i class="fa fa-exclamation-circle"></i>
-            <strong>Oh No!</strong> There is already quiz with password @Model.Password Try Again ! 
-        </div>
-    }
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+        <i class="fa fa-exclamation-circle"></i>
+        <strong>Oh No!</strong> There is already quiz with password @Model.Password Try Again ! 
+    </div>
 }
 
 <div class="container-fluid">
     <div class="col-12 offset-md-2 col-md-8 row">
-        <form id="form" method="post" asp-area="Administration" asp-controller="Quizzes" asp-action="DetailsInput" class="col-12">
+        <form id="form" method="post" asp-area="Administration" asp-controller="Quizzes" asp-action="Update" class="col-12">
             <div class="comment">
                 <div class="card mb-3 mt-3">
                     <div class="card-header text-warning">
                         <i class="fas fa-folder-plus" style="font-size: xx-large"></i>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Quiz Details</h4>
+                        <h4 class="card-title">Edit Quiz</h4>
                         <p class="card-text text-primary">
                             <span class="mr-1">*</span>
                             You can always edit details later.
@@ -36,6 +33,7 @@
                         <div><label asp-for="@Model.Name">Name</label></div>
                         <div class="input-group">
                             <input type="text" asp-for="@Model.Name" class="form-control" placeholder="Name" />
+                            <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
                         </div>
                         <span asp-validation-for="@Model.Name" class="text-danger"></span>
 
@@ -44,14 +42,10 @@
                             <input type="text" asp-for="@Model.Password" class="form-control" placeholder="Password" />
                         </div>
                         <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                        <p class="card-text text-primary">
-                            <span class="mr-1">*</span>
-                            In order to be accessible you should set password to your quiz.
-                        </p>
 
                         <div class="mt-4"><label asp-for="@Model.Description">Description</label></div>
-                        <textarea asp-for="@Model.Description" class="form-control" placeholder="Description">
-                        </textarea>
+                        <textarea asp-for="@Model.Description" class="form-control" placeholder="Description"></textarea>
+                        <span asp-validation-for="@Model.Description" class="text-danger"></span>
 
                         <div class="mt-4"><label asp-for="@Model.Timer">Set Timer</label></div>
                         <div class="input-group">
@@ -63,7 +57,7 @@
                         </p>
 
                         <div class="row text-white mx-4">
-                            <button id="addQuiz" type="submit" class="btn btn-primary col-md-5 mt-5">Add Quiz</button>
+                            <button type="submit" class="btn btn-primary col-md-5 mt-5">Save Changes</button>
                             <div class="col-2"></div>
                             <a href="/Administration/Quizzes/AllQuizzesCreatedByTeacher" class="btn btn-secondary col-md-5 mt-5">Cancel</a>
                         </div>
