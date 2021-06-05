@@ -149,25 +149,41 @@
 {
     @await Html.PartialAsync("_QuestionDetailsPartial", Model.Quetion)
 }
+else
+{
+<div class="text-center">
+    <h3 class="text-danger">No Questions for this quiz yet!</h3>
+    <div class="col-md-4 offset-md-4">
+        <a class="nav-link btn btn-success"
+           asp-action="QuestionsInput"
+           asp-controller="Questions"
+           asp-area="Administration"
+           asp-route-id="@Model.Details.Id">
+            Add Questions
+        </a>
+    </div>
+    <hr />
+</div>
+}
 <a class="btn btn-outline-primary col-md-4 offset-md-4 mt-2 d-inline-block"
    asp-action="QuestionInput"
    asp-controller="Questions"
    asp-route-id="@Model.Details.Id">
     Add Question
 </a>
-<a class="btn btn-outline-primary offset-md-4 col-md-4 mt-2 d-inline-block" 
-   target="_blank" 
-   asp-action="PDFExport" 
-   asp-controller="Quizzes" 
+<a class="btn btn-outline-primary offset-md-4 col-md-4 mt-2 d-inline-block"
+   target="_blank"
+   asp-action="PDFExport"
+   asp-controller="Quizzes"
    asp-route-id="@Model.Details.Id">
     Export To PDF
 </a>
 @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) && this.ViewData[GlobalConstants.DashboardRequest] != null)
 {
-@section InnerNav
+    @section InnerNav
     {
-    <partial name="_DashboardNavBarPartial" />
-}}
+        <partial name="_DashboardNavBarPartial" />
+    }}
 @section Scripts
 {
     <script src="~/js/navigation.js" asp-append-version="true"></script>

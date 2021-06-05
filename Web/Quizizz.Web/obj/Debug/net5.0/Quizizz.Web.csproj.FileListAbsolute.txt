@@ -541,3 +541,5 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\V
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Quizzes\Display.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Views\Shared\_QuestionDetailsPartial.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Answers\AppendAnswerInput.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Answers\EditAnswerInput.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Questions\EditQuestionInput.cshtml.g.cs

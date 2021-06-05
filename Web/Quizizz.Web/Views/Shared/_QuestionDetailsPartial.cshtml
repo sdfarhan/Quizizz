@@ -9,7 +9,7 @@
 <div class="form-group flex-grow-1 d-inline">
     <nav class="navbar navbar-expand-lg navbar-dark bg-neutral mt-4 py-2 pr-1">
         <div class="container">
-            <h5 class="mb-0">@Model.Number</h5>
+            <h5 class="mb-0">Question No: @Model.Number</h5>
             <button class="navbar-toggler bg-primary mx-1"
                     type="button" data-toggle="collapse"
                     data-target="@target"
@@ -30,9 +30,18 @@
                         </a>
                     </li>
                     <li class="nav-item m-1">
+                        <a class="nav-link btn btn-primary col-lg-12"
+                           asp-action="EditQuestionInput"
+                           asp-controller="Questions"
+                           asp-area="Administration"
+                           asp-route-id="@Model.Id">
+                            Edit Question
+                        </a>
+                    </li>
+                    <li class="nav-item m-1">
                         <!-- button that opens the modal -->
                         <a class="nav-link btn btn-danger col-lg-12" data-toggle="modal" data-target="@deleteTarget">
-                            Delete
+                            Delete Question
                         </a>
                         <!-- the modal -->
                         <div class="modal fade" id="@deleteId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,6 +81,24 @@
             </tr>
         </thead>
     </table>
+
+    @if (Model.Answers.Count == 0)
+    {
+        <div class="text-center">
+            <h3 class="text-danger">No Answers for this question yet!</h3>
+            <div class="col-md-4 offset-md-4">
+                <a class="nav-link btn btn-success col-lg-12"
+                   asp-action="AppendAnswerInput"
+                   asp-controller="Answers"
+                   asp-area="Administration"
+                   asp-route-id="@Model.Id">
+                    Add Answer
+                </a>
+            </div>
+            <hr />
+        </div>
+    }
+
     @for (int i = 0; i < Model.Answers.Count; i++)
     {
         var answerNavbarDropDownId = "answerNavbarDropDown" + Model.Number + i;
@@ -85,7 +112,7 @@
                 <div class="container">
                     <div class="form-group mb-0">
                         <div class="mt-2">
-                            <input type="checkbox" disabled  asp-for="@answer.IsRightAnswer" value="true"/>
+                            <input type="checkbox" disabled asp-for="@answer.IsRightAnswer" value="true" />
                             <label class="display-6">Answer</label>
                         </div>
                     </div>
@@ -104,13 +131,13 @@
                                    asp-action="EditAnswerInput"
                                    asp-controller="Answers"
                                    asp-route-id="@answer.Id">
-                                    Edit
+                                    Edit Answer
                                 </a>
                             </li>
                             <li class="nav-item m-1">
                                 <!-- button that opens the modal -->
                                 <button type="button" class="nav-link btn btn-danger col-12" data-toggle="modal" data-target="@targetDeleteAnswer">
-                                    Delete
+                                    Delete Answer
                                 </button>
                                 <!-- the modal -->
                                 <div class="modal fade" id="@deleteAnswerId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

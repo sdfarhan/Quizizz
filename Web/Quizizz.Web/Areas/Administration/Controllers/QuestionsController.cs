@@ -41,5 +41,29 @@
             this.HttpContext.Session.SetString(Constants.CurrentQuestionId, questionId);
             return this.RedirectToAction("AnswerInput", "Answers");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditQuestionInput(string id)
+        {
+            var model = await this.questionsService.GetByIdAsync<QuestionInputModel>(id);
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(QuestionInputModel model)
+        {
+            await this.questionsService.Update(model.Id, model.Text);
+            var page = this.HttpContext.Session.GetInt32(Constants.PageToReturnTo);
+
+            return this.RedirectToAction("Display", "Quizzes", new { page });
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            await this.questionsService.DeleteQuestionByIdAsync(id);
+
+            return this.RedirectToAction("Display", "Quizzes", new { page = 1 });
+        }
     }
 }
