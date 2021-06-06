@@ -6,4 +6,3 @@ F:\myrepos\Quizizz\Web\Quizizz.Web.Infrastructure\obj\Debug\netstandard2.1\Quizi
 F:\myrepos\Quizizz\Web\Quizizz.Web.Infrastructure\obj\Debug\netstandard2.1\Quizizz.Web.Infrastructure.csproj.CoreCompileInputs.cache
 F:\myrepos\Quizizz\Web\Quizizz.Web.Infrastructure\obj\Debug\netstandard2.1\Quizizz.Web.Infrastructure.dll
 F:\myrepos\Quizizz\Web\Quizizz.Web.Infrastructure\obj\Debug\netstandard2.1\Quizizz.Web.Infrastructure.pdb
-F:\myrepos\Quizizz\Web\Quizizz.Web.Infrastructure\obj\Debug\netstandard2.1\Quizizz.Web.Infrastructure.csprojAssemblyReference.cache
