@@ -66,7 +66,7 @@
 
         public async Task DeleteAsync(string id)
         {
-            var category = await this.GetByIdAsync<Category>(id);
+            var category = await this.categoryRepository.AllAsNoTracking().Where(x => x.Id == id).FirstOrDefaultAsync();
 
             this.categoryRepository.Delete(category);
             await this.categoryRepository.SaveChangesAsync();
@@ -74,7 +74,7 @@
 
         public async Task DeleteQuizFromCategoryAsync(string categoryId, string quizId)
         {
-            var category = await this.GetByIdAsync<Category>(categoryId);
+            var category = await this.categoryRepository.AllAsNoTracking().Where(x => x.Id == categoryId).FirstOrDefaultAsync();
             var quiz = await this.quizRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == quizId);
 
             category.Quizzes.Remove(quiz);
@@ -134,7 +134,7 @@
 
         public async Task UpdateNameAsync(string id, string newName)
         {
-            var category = await this.GetByIdAsync<Category>(id);
+            var category = await this.categoryRepository.AllAsNoTracking().Where(x => x.Id == id).FirstOrDefaultAsync();
             category.Name = newName;
 
             this.categoryRepository.Update(category);

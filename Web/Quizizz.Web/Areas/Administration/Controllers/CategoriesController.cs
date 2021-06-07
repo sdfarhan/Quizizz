@@ -30,7 +30,7 @@
             this.quizzesService = quizzesService;
         }
 
-        public async Task<IActionResult> AllCategoriesCreatedByTeacher(string searchCriteria, string searchText, int page = 0, int countPerPage = DefaultCountPerPage)
+        public async Task<IActionResult> AllCategoriesCreatedByTeacher(string searchCriteria, string searchText, int page = 1, int countPerPage = DefaultCountPerPage)
         {
             var userId = this.userManager.GetUserId(this.User);
 
@@ -76,5 +76,62 @@
 
             return this.View(model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignQuizzesToCategory(CategoryWithQuizzesViewModel model)
+        {
+            var quizzesIds = model.Quizzes.Where(x => x.IsAssigned).Select(x => x.Id).ToList();
+
+            if (quizzesIds.Count == 0)
+            {
+                model.Error = true;
+                return this.View(model);
+            }
+
+            await this.categoriesService.AssignQuizzesToCategoryAsync(model.Id, quizzesIds);
+            return this.RedirectToAction("CategoryDetails", new { id = model.Id });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CategoryDetails(string id)
+        {
+            var quizzes = await this.quizzesService.GetAllByCategoryIdAsync<QuizAssignViewModel>(id);
+            var model = await this.categoriesService.GetByIdAsync<CategoryWithQuizzesViewModel>(id);
+            model.Quizzes = quizzes;
+
+            return this.View(model);
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            await this.categoriesService.DeleteAsync(id);
+            return this.RedirectToAction(nameof(this.AllCategoriesCreatedByTeacher), "Categories");
+        }
+
+        public async Task<IActionResult> DeleteQuizFromCategory(string categoryId, string quizId)
+        {
+            await this.categoriesService.DeleteQuizFromCategoryAsync(categoryId, quizId);
+            return this.RedirectToAction("CategoryDetails", "Categories", new { id = categoryId });
+        }
+
+        public IActionResult EditName(string id, string name)
+        {
+            var model = new EditCategoryNameInputViewModel
+            {
+                Id = id,
+                Name = name,
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditName(EditCategoryNameInputViewModel model)
+        {
+            await this.categoriesService.UpdateNameAsync(model.Id, model.Name);
+
+            return this.RedirectToAction("CategoryDetails", "Categories", new { id = model.Id });
+        }
+
     }
 }
