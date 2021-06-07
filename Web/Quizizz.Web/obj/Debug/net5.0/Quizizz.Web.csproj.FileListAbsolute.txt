@@ -551,3 +551,5 @@ F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\V
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Groups\Create.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Groups\AssignEvent.cshtml.g.cs
 F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Groups\AssignStudents.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Groups\GroupDetails.cshtml.g.cs
+F:\myrepos\Quizizz\Web\Quizizz.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Groups\EditName.cshtml.g.cs

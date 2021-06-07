@@ -111,7 +111,6 @@
             return this.RedirectToAction("GroupDetails", new { id = model.Id });
         }
 
-
         public IActionResult Create()
         {
             return this.View();
@@ -124,6 +123,50 @@
             var groupId = await this.groupsService.CreateGroupAsync(model.Name, userId);
 
             return this.RedirectToAction("AssignEvent", new { id = groupId });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await this.groupsService.DeleteAsync(id);
+            return this.RedirectToAction(nameof(this.AllGroupsCreatedByTeacher), "Groups");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {
+            return this.RedirectToAction("GroupDetails", new { id });
+        }
+
+        public IActionResult EditName(string id, string name)
+        {
+            var model = new EditGroupNameInputViewModel
+            {
+                Id = id,
+                Name = name,
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditName(EditGroupNameInputViewModel model)
+        {
+            await this.groupsService.UpdateNameAsync(model.Id, model.Name);
+            return this.RedirectToAction("GroupDetails", new { id = model.Id });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GroupDetails(string id)
+        {
+            var events = await this.eventsService.GetAllByGroupIdAsync<EventsAssignViewModel>(id);
+            var students = await this.usersService.GetAllByGroupIdAsync<StudentsViewModel>(id);
+            var model = await this.groupsService.GetGroupModelAsync<GroupDetailsViewModel>(id);
+
+            model.Events = events;
+            model.Students = students;
+
+            return this.View(model);
         }
     }
 }
