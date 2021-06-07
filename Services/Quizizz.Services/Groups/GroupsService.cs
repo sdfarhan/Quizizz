@@ -73,12 +73,12 @@
             return await query.OrderByDescending(x => x.CreatedOn).To<T>().ToListAsync();
         }
 
-        public async Task<IList<T>> GetGroupModelAsync<T>(string groupId)
+        public async Task<T> GetGroupModelAsync<T>(string groupId)
         => await this.groupRepository
             .AllAsNoTracking()
             .Where(x => x.Id == groupId)
             .To<T>()
-            .ToListAsync();
+            .FirstOrDefaultAsync();
 
         public async Task DeleteAsync(string groupId)
         {

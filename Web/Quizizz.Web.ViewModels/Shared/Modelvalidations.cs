@@ -20,6 +20,13 @@
             public const int NameMaxLength = 50;
         }
 
+        public static class Groups
+        {
+            public const int NameMinLength = 2;
+
+            public const int NameMaxLength = 50;
+        }
+
         public static class Error
         {
             public const string RangeMessage = "The {0} must be at least {2} and at max {1} characters long.";

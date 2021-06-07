@@ -27,7 +27,7 @@
 
         Task<T> GetEventsFirstGroupAsync<T>(string eventId);
 
-        Task<IList<T>> GetGroupModelAsync<T>(string groupId);
+        Task<T> GetGroupModelAsync<T>(string groupId);
 
         Task UpdateNameAsync(string groupId, string name);
     }
