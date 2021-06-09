@@ -16,8 +16,8 @@
 
         [Required]
         [StringLength(
-            ModelValidations.Answer.TextMaxLength,
-            MinimumLength = ModelValidations.Answer.TextMinLength,
+            ModelValidations.Answers.TextMaxLength,
+            MinimumLength = ModelValidations.Answers.TextMinLength,
             ErrorMessage = ModelValidations.Error.RangeMessage)]
         public string Text { get; set; }
 

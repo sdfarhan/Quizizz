@@ -132,6 +132,5 @@
 
             return this.RedirectToAction("CategoryDetails", "Categories", new { id = model.Id });
         }
-
     }
 }
