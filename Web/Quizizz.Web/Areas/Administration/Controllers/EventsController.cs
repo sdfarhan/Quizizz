@@ -37,7 +37,7 @@
             this.quizzesService = quizzesService;
         }
 
-        public async Task<IActionResult> AllEventsCreatedByTeacher(string searchCriteria, string searchText, int page = 0, int countPerPage = DefaultCountPerPage)
+        public async Task<IActionResult> AllEventsCreatedByTeacher(string searchCriteria, string searchText, int page = 1, int countPerPage = DefaultCountPerPage)
         {
             var userId = this.userManager.GetUserId(this.User);
 
@@ -140,6 +140,13 @@
 
             await this.eventsService.AssigQuizToEventAsync(model.Id, quizzes[0].Id, model.TimeZone);
             return this.RedirectToAction("EventDetails", new { id = model.Id });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await this.eventsService.DeleteAsync(id);
+            return this.RedirectToAction("AllEventsCreatedByTeacher");
         }
 
         [HttpGet]

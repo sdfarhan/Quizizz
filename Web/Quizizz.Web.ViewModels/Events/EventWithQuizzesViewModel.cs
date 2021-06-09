@@ -4,9 +4,11 @@
     using System.Collections.Generic;
     using System.Text;
 
+    using Quizizz.Data.Models;
+    using Quizizz.Services.Mapping;
     using Quizizz.Web.ViewModels.Quizzes;
 
-    public class EventWithQuizzesViewModel
+    public class EventWithQuizzesViewModel : IMapFrom<Event>
     {
         public EventWithQuizzesViewModel()
         {
